@@ -1,1 +1,611 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Sleep & MCI — 10 Systematic Review Packs (PROSPERO-ready)</title>
+<style>
+  :root{
+    --bg:#0b1220; --card:#071229; --accent:#2dd4bf; --muted:#94a3b8; --panel:#071a2a;
+    --glass: rgba(255,255,255,0.03); --white: #E6EEF6;
+  }
+  body{font-family:Inter,ui-sans-serif,system-ui,Arial; margin:0; background:linear-gradient(180deg,#041023,#071224); color:var(--white);}
+  .wrap{max-width:1200px;margin:28px auto;padding:18px;}
+  header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  header h1{margin:0;font-size:20px}
+  header p{margin:0;color:var(--muted)}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0}
+  .tab{background:var(--glass);padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);cursor:pointer;color:var(--muted)}
+  .tab.active{background:linear-gradient(90deg,#043147,#064a5a);color:var(--white);border-color:rgba(255,255,255,0.06)}
+  .panel{background:var(--card);padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+  .section{margin-bottom:14px}
+  .section h2{margin:0 0 8px 0;color:var(--accent);font-size:16px}
+  .muted{color:var(--muted);font-size:13px}
+  code{display:block;background:#031726;padding:10px;border-radius:8px;font-family:ui-monospace,monospace;color:#bfeef0;white-space:pre-wrap}
+  .row{display:flex;gap:12px}
+  .col{flex:1}
+  table{width:100%;border-collapse:collapse;margin-top:8px}
+  th,td{padding:8px;border:1px solid rgba(255,255,255,0.03);text-align:left;font-size:13px}
+  th{background:rgba(255,255,255,0.02)}
+  .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:8px;color:var(--accent);cursor:pointer}
+  .btn.small{padding:6px 8px;font-size:13px}
+  footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+  textarea{width:100%;height:160px;background:#041226;color:var(--white);border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,0.03);font-family:monospace}
+  .copy-note{color:#9ff3df;font-weight:600;margin-left:12px}
+  @media(max-width:900px){.row{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Sleep & Mild Cognitive Impairment — 10 Systematic Review Packs (PROSPERO-ready)</h1>
+      <p class="muted">Each tab includes PICO, PubMed/Embase searches, data extraction table (mock row), risk-of-bias mock and a copyable PROSPERO draft.</p>
+    </div>
+    <div class="muted">Author: Nadir · Generated page</div>
+  </header>
+
+  <div class="tabs" id="tabs"></div>
+
+  <div id="content" class="panel"></div>
+
+  <footer class="muted">Save this file and open in your browser. Use Copy buttons to copy search strings and PROSPERO drafts.</footer>
+</div>
+
+<script>
+/* ---------- DATA for 10 Reviews (title, content) ---------- */
+const reviews = [
+  {
+    id:1, title:"Sleep disturbances as a risk factor for MCI",
+    background:`Sleep disturbances (insomnia, sleep fragmentation, obstructive sleep apnea, circadian disruption) have been implicated in cognitive decline. Poor sleep reduces glymphatic clearance (amyloid/tau), impairs memory consolidation, and increases vascular/inflammatory risk — potentially increasing incident MCI risk.`,
+    research_gap:`Most reviews focus on dementia; fewer synthesize evidence specifically on incident MCI across sleep types and measurement methods.`,
+    pico:{
+      P:"Cognitively healthy adults ≥50 years",
+      I:"Sleep disturbances (insomnia, poor sleep quality, OSA, circadian disorders)",
+      C:"No sleep disturbance",
+      O:"Incident MCI (Petersen criteria, MoCA<26, CDR 0.5)"
+    },
+    eligibility:`Inclusion: Longitudinal cohorts or case-control studies; sleep assessed by PSG/actigraphy/validated questionnaire; reported incident MCI. Exclusion: cross-sectional only, pediatric populations, dementia-only studies.`,
+    pubmed:`(("Sleep Initiation and Maintenance Disorders"[Mesh] OR "Sleep Wake Disorders"[Mesh] OR insomnia[tiab] OR "sleep disturbance*"[tiab] OR "sleep fragmentation"[tiab] OR "circadian rhythm"[tiab] OR "sleep apnea"[tiab] OR OSA[tiab]) AND ("Mild Cognitive Impairment"[Mesh] OR "mild cognitive impairment"[tiab] OR MCI[tiab] OR "cognitive decline"[tiab]) AND (longitudinal[tiab] OR prospective[tiab] OR cohort[tiab]))`,
+    embase:`('sleep disorder'/exp OR insomnia:ti,ab OR 'sleep disturbance*':ti,ab OR 'sleep fragmentation':ti,ab OR 'circadian rhythm':ti,ab OR 'obstructive sleep apnea':ti,ab OR OSA:ti,ab) AND ('mild cognitive impairment'/exp OR 'mild cognitive impairment':ti,ab OR MCI:ti,ab OR 'cognitive decline':ti,ab) AND (longitudinal:ti,ab OR prospective:ti,ab OR cohort:ti,ab)`,
+    methods:`Risk-of-bias: Newcastle-Ottawa Scale. Primary synthesis: random-effects meta-analysis of HR/RR/OR for incident MCI. Subgroups: type of sleep disturbance, objective vs subjective measurement, sex, region. Sensitivity: exclude high-bias studies; meta-regression on follow-up length.`,
+    prisma:`Databases: PubMed, Embase, PsycINFO, Scopus. Grey literature: ClinicalTrials.gov, Conference abstracts. Limits: Humans, English. No date restriction.`,
+    extractionCols:["Author(s), Year","Journal","Country","Design","N","Population (age/sex)","Sleep exposure","Measurement method","Follow-up (yrs)","Outcome (MCI def)","Effect estimate (HR/OR)","Covariates adjusted","Main finding","Risk of bias"],
+    mockRow:["Gonzalez et al., 2019","Sleep Med","Spain","Prospective cohort","1,350","Mean age 72, 52%F","OSA AHI≥15","Home PSG","5","Incident MCI (Petersen)","HR 1.8 (1.2–2.6)","Age, sex, education, APOE4","OSA associated with ↑ MCI risk","NOS: Moderate"],
+    robMock:["Study: Gonzalez 2019","Tool: Newcastle-Ottawa","Selection: Good","Comparability: Fair","Outcome: Good","Overall: Moderate"],
+    prosperoDraft:
+`Title:
+Sleep disturbances as a risk factor for mild cognitive impairment: a systematic review and meta-analysis
+
+Review question:
+Are sleep disturbances (insomnia, sleep fragmentation, obstructive sleep apnea, circadian disruption) associated with an increased risk of developing mild cognitive impairment (MCI) in adults?
+
+Objectives:
+To systematically review and synthesize longitudinal evidence evaluating the association between sleep disturbances and incident MCI.
+
+Eligibility criteria:
+Population: Cognitively normal adults ≥50 years at baseline.
+Exposure: Sleep disturbances (insomnia, poor sleep quality, OSA, sleep fragmentation, circadian rhythm disorders) assessed by PSG, actigraphy, or validated questionnaires.
+Comparator: No sleep disturbance or normative sleep.
+Outcome: Incident MCI (clinical diagnosis, Petersen criteria, MoCA<26, CDR 0.5).
+Study designs: Prospective cohort and case-control studies.
+Language: English.
+
+Information sources and search strategy:
+Databases: PubMed/MEDLINE, Embase, PsycINFO, Scopus, Web of Science.
+Grey literature: ClinicalTrials.gov, WHO ICTRP, conference proceedings.
+Example PubMed string:
+(("Sleep Initiation and Maintenance Disorders"[Mesh] OR "Sleep Wake Disorders"[Mesh] OR insomnia[tiab] OR "sleep disturbance*"[tiab] OR "sleep fragmentation"[tiab] OR "circadian rhythm"[tiab] OR "sleep apnea"[tiab] OR OSA[tiab]) AND ("Mild Cognitive Impairment"[Mesh] OR "mild cognitive impairment"[tiab] OR MCI[tiab] OR "cognitive decline"[tiab]) AND (longitudinal[tiab] OR prospective[tiab] OR cohort[tiab]))
+
+Data extraction:
+Two reviewers independently extract: study identifiers, design, sample size, population, sleep exposure and measurement, outcome definition, follow-up length, effect estimates (HR/OR/RR) with 95% CI, covariates adjusted, funding, and risk-of-bias items.
+
+Risk of bias:
+Newcastle-Ottawa Scale for cohort/case-control studies. Two reviewers independently assess; disagreements resolved by consensus.
+
+Data synthesis:
+Random-effects meta-analysis (DerSimonian-Laird or REML) pooling HR/RR/OR. Subgroup analyses by sleep disturbance type, objective vs subjective measures, sex, and region. Sensitivity analyses excluding high-bias studies. Publication bias assessed with funnel plots and Egger test.
+
+Dissemination:
+Manuscript submission to a geriatrics/neurology journal; conference presentation.
+
+Anticipated dates:
+Start: [insert date]; Completion: [insert date].`
+  },
+
+  // Review 2
+  {
+    id:2, title:"Sleep quality and conversion from MCI to dementia",
+    background:`Sleep quality (subjective PSQI, objective actigraphy/PSG metrics) may predict which individuals with MCI convert to dementia. Sleep markers like low slow-wave sleep or high fragmentation are hypothesized to accelerate neurodegeneration.`,
+    research_gap:`Studies exist but are heterogeneous (different sleep measures, follow-up lengths); a prognostic synthesis focused on MCI → dementia is needed.`,
+    pico:{P:"Adults diagnosed with MCI", I:"Poor sleep quality (PSQI, low SWS, high fragmentation)", C:"Good/normal sleep", O:"Conversion to dementia (all-cause or subtype)"},
+    eligibility:`Include longitudinal cohorts of MCI with baseline sleep assessment and follow-up for dementia conversion (≥12 months). Exclude cross-sectional and studies without clear dementia outcomes.`,
+    pubmed:`(("Sleep Quality"[Mesh] OR polysomnography[tiab] OR actigraphy[tiab] OR PSQI[tiab]) AND ("Mild Cognitive Impairment"[Mesh] OR MCI[tiab]) AND ("Dementia"[Mesh] OR dementia[tiab] OR Alzheimer*[tiab]) AND (longitudinal[tiab] OR prospective[tiab]))`,
+    embase:`('sleep quality':ti,ab OR polysomnograph*:ti,ab OR actigraph*:ti,ab OR PSQI:ti,ab) AND ('mild cognitive impairment'/exp OR 'mild cognitive impairment':ti,ab) AND ('dementia'/exp OR dementia:ti,ab OR Alzheimer*:ti,ab) AND (longitudinal:ti,ab OR prospective:ti,ab)`,
+    methods:`Risk of bias: QUIPS tool. Primary analysis: hazard ratios (time-to-event). Use random-effects meta-analysis; meta-regression on follow-up years and measurement method; subgroup by dementia subtype if data available.`,
+    prisma:`Search: PubMed, Embase, Web of Science, CENTRAL. Include conference abstracts and ClinicalTrials.gov.`,
+    extractionCols:["Author,Year","Country","Design","N (MCI)","MCI criteria","Sleep measure (PSQI/PSG/actigraphy)","Baseline cognition","Follow-up (yrs)","Conversion events","HR (95% CI)","Adjusted covariates","Key findings","Bias"],
+    mockRow:["Kumar et al., 2020","Neurology","India","Prospective cohort","240","Petersen","PSQI>8","MoCA 21","3","40","HR 2.1 (1.2–3.6)","Age, sex, education, depression","High PSQI predicted faster conversion","QUIPS: Moderate"],
+    robMock:["Study: Kumar 2020","Tool: QUIPS","Domains: Moderate concerns in confounding","Overall: Moderate"],
+    prosperoDraft:
+`Title:
+Sleep quality and risk of conversion from mild cognitive impairment to dementia: a systematic review and meta-analysis
+
+Review question:
+Does baseline poor sleep quality predict conversion from mild cognitive impairment to dementia?
+
+Objectives:
+To synthesize longitudinal evidence on whether poor sleep quality at baseline in MCI patients predicts progression to dementia.
+
+Eligibility criteria:
+Population: Adults with clinical MCI.
+Exposure: Poor sleep measured via PSQI, actigraphy, polysomnography, or clinical diagnosis of sleep disorder.
+Outcome: Conversion to dementia (all-cause or specified subtype) with at least 12 months follow-up.
+Study designs: Prospective cohort studies.
+Language: English.
+
+Information sources and search strategy:
+Databases: PubMed, Embase, Web of Science, CENTRAL.
+Grey literature: ClinicalTrials.gov, conference abstracts.
+Example PubMed string:
+(("Sleep Quality"[Mesh] OR polysomnography[tiab] OR actigraphy[tiab] OR PSQI[tiab]) AND ("Mild Cognitive Impairment"[Mesh] OR MCI[tiab]) AND ("Dementia"[Mesh] OR dementia[tiab] OR Alzheimer*[tiab]) AND (longitudinal[tiab] OR prospective[tiab]))
+
+Data extraction & risk of bias:
+Two independent reviewers extract data (baseline sleep measure, follow-up, conversion counts, HRs). Risk of bias assessed with QUIPS.
+
+Synthesis:
+Prefer hazard ratios for time-to-event; random-effects pooling when appropriate. Subgroup/meta-regression by sleep measurement method, follow-up duration, and APOE ε4 where available. Evaluate publication bias.
+
+Dissemination:
+Target neurology/gerontology journals and conferences.
+
+Timelines:
+Start: [insert date]; Completion: [insert date].`
+  },
+
+  // Review 3
+  {
+    id:3, title:"Interventions for sleep disorders in MCI (RCTs & pilots)",
+    background:`Sleep disorders are common in MCI. Interventions (CPAP, CBT-I, melatonin, light therapy, exercise) may improve cognition or delay progression, but trial evidence is fragmented and small.`,
+    research_gap:`No dedicated synthesis focusing on efficacy of sleep interventions in MCI patients; trials are small and heterogeneous.`,
+    pico:{P:"Adults with MCI and documented sleep disorder", I:"Sleep interventions (CPAP, CBT-I, melatonin, light)", C:"Placebo, sham, usual care", O:"Cognition (global and domain-specific), sleep outcomes, conversion to dementia"},
+    eligibility:`Include RCTs, quasi-RCTs, and pilot randomized trials in MCI where interventions target sleep. Exclude dementia-only trials without MCI subgroup.`,
+    pubmed:`(("Sleep Initiation and Maintenance Disorders"[Mesh] OR insomnia[tiab] OR "sleep apnea"[tiab] OR OSA[tiab]) AND ("Mild Cognitive Impairment"[Mesh] OR MCI[tiab]) AND ("Randomized Controlled Trial"[pt] OR randomized[tiab] OR trial[tiab] OR RCT[tiab]))`,
+    embase:`('sleep disorder'/exp OR insomnia:ti,ab OR 'sleep apnea':ti,ab) AND ('mild cognitive impairment'/exp OR 'mild cognitive impairment':ti,ab) AND ('randomized controlled trial'/exp OR randomized:ti,ab OR trial:ti,ab)`,
+    methods:`Risk-of-bias: RoB 2. Primary synthesis: standardized mean differences (SMD) for continuous cognitive measures; separate analyses by intervention type (CPAP vs CBT-I vs melatonin). Extract adherence (CPAP hours/night). GRADE to assess overall certainty.`,
+    prisma:`Search CENTRAL, PubMed, Embase, ClinicalTrials.gov, WHO ICTRP for unpublished/ongoing trials. Include pilot trials with note on small-sample limitations.`,
+    extractionCols:["Author,Year","Design","Intervention (details)","Comparator","N (int/ctrl)","MCI criteria","Follow-up","Cognitive measures","Sleep measures","Adherence","Main effect (cognition)","Adverse events","RoB2"],
+    mockRow:["Smith et al., 2021","RCT","CBT-I, 8 weeks","Sleep-hygiene control","120 (60/60)","Petersen","6 months","MoCA, RAVLT","PSQI","CBT-I improved PSQI; MoCA +1.2 vs +0.2","No serious AEs","RoB2: Low"],
+    robMock:["Study: Smith 2021","Tool: RoB2","Domains: Low risk across domains","Overall: Low"],
+    prosperoDraft:
+`Title:
+Interventions for sleep disorders in mild cognitive impairment: a systematic review and meta-analysis of randomized and quasi-randomized trials
+
+Review question:
+Do sleep-targeted interventions (pharmacological or non-pharmacological) improve cognitive outcomes and sleep quality in adults with MCI?
+
+Objectives:
+To evaluate the effectiveness of CPAP, CBT-I, melatonin, light therapy, and other sleep interventions on cognition and sleep outcomes in MCI.
+
+Eligibility criteria:
+Population: Adults diagnosed with MCI and a coexisting sleep disorder or poor sleep.
+Interventions: CPAP, CBT-I, melatonin, hypnotics, light therapy, exercise, sleep hygiene (any duration/intensity).
+Comparators: Placebo, sham, usual care, alternative intervention.
+Outcomes: Primary—global cognition (MMSE, MoCA, ADAS-Cog). Secondary—domain-specific tests, sleep quality (PSQI, actigraphy), conversion to dementia, adverse events.
+Study designs: RCTs, quasi-randomized trials, pilot randomized trials.
+Language: English.
+
+Information sources:
+PubMed, Embase, Cochrane CENTRAL, PsycINFO, ClinicalTrials.gov, WHO ICTRP, conference abstracts.
+
+Data extraction & risk of bias:
+Two reviewers extract study details and outcomes. RoB 2 used for RCT risk-of-bias assessment. Extract adherence metrics (esp. CPAP).
+
+Synthesis:
+Narrative synthesis plus random-effects meta-analysis where ≥3 comparable studies exist. Use SMD for continuous cognitive outcomes; subgroup by intervention type and MCI subtype. Apply GRADE to summarize evidence certainty.
+
+Dissemination:
+Target journals: Sleep Medicine, Journal of Alzheimer's Disease, or geriatrics journals.
+
+Timelines:
+Start: [insert date]; Completion: [insert date].`
+  },
+
+  // Review 4
+  {
+    id:4, title:"Obstructive sleep apnea (OSA) and risk of MCI",
+    background:`OSA causes intermittent hypoxia and sleep fragmentation; both can impair cognition and increase cerebrovascular disease risk — plausible mechanisms for incident MCI.`,
+    research_gap:`While OSA-dementia links are reviewed, focused synthesis on OSA → incident MCI (with AHI thresholds and CPAP treatment status) is limited.`,
+    pico:{P:"Adults ≥50", I:"OSA (AHI thresholds or clinical diagnosis)", C:"No/mild OSA", O:"Incident MCI or cognitive decline"},
+    eligibility:`Prospective cohorts and case-control studies with objective OSA measures (PSG or validated home testing). Exclude studies relying only on self-report snoring.`,
+    pubmed:`(("Sleep Apnea, Obstructive"[Mesh] OR "obstructive sleep apnea"[tiab] OR OSA[tiab] OR "sleep disordered breathing"[tiab]) AND ("Mild Cognitive Impairment"[Mesh] OR "mild cognitive impairment"[tiab] OR MCI[tiab] OR "cognitive decline"[tiab]))`,
+    embase:`('obstructive sleep apnea'/exp OR 'obstructive sleep apnea':ti,ab OR OSA:ti,ab OR 'sleep disordered breathing':ti,ab) AND ('mild cognitive impairment'/exp OR 'mild cognitive impairment':ti,ab OR MCI:ti,ab OR 'cognitive decline':ti,ab)`,
+    methods:`Meta-analysis pooling OR/HR across cohorts; subgroups by AHI cutoff (≥15, ≥30) and CPAP-treated status. Adjust for BMI and vascular comorbidities.`,
+    prisma:`Search PubMed, Embase, Scopus, Web of Science; capture whether OSA assessed by PSG, home test, or claims data.`,
+    extractionCols:["Author","Year","Country","AHI threshold","Measurement method","N","Age","Outcome","Effect estimate","Adjusted covariates","Notes"],
+    mockRow:["Park et al., 2018","Sleep Breath","South Korea","AHI≥15","Home kit PSG","520","67","Incident MCI over 4y","OR 1.7 (1.1–2.5)","Age, HTN, diabetes","NOS: Moderate"],
+    robMock:["Study: Park 2018","Tool: Newcastle-Ottawa","Selection: Good","Comparability: Fair","Outcome: Good","Overall: Moderate"],
+    prosperoDraft:
+`Title:
+Obstructive sleep apnea and the risk of mild cognitive impairment: a systematic review and meta-analysis
+
+Review question:
+Is obstructive sleep apnea associated with increased risk of incident mild cognitive impairment?
+
+Objectives:
+To synthesize evidence evaluating OSA (by AHI thresholds or clinical diagnosis) as a risk factor for incident MCI.
+
+Eligibility criteria:
+Population: Adults ≥50 years without baseline dementia.
+Exposure: OSA measured by PSG or validated home sleep testing (AHI thresholds).
+Comparator: No OSA or mild OSA.
+Outcome: Incident MCI (clinical criteria).
+Study designs: Prospective cohort and case-control studies.
+Language: English.
+
+Information sources:
+PubMed, Embase, Scopus, Web of Science, ClinicalTrials.gov.
+
+Risk of bias & data extraction:
+Newcastle-Ottawa Scale. Extract AHI thresholds, measurement device, CPAP use, confounder adjustment (BMI, HTN, diabetes).
+
+Synthesis:
+Random-effects meta-analysis; subgroup by AHI threshold and CPAP treatment status. Sensitivity analyses adjusting for vascular risk factors.
+
+Dissemination:
+Sleep / neurology journals.`
+  },
+
+  // Review 5
+  {
+    id:5, title:"Insomnia and MCI",
+    background:`Chronic insomnia may increase neuroinflammation and reduce restorative deep sleep, possibly contributing to cognitive decline.`,
+    research_gap:`Subjective insomnia studies exist, but targeted MCI-focused synthesis is limited and confounding by depression/medications is common.`,
+    pico:{P:"Older adults ≥50", I:"Insomnia (clinical diagnosis or validated scales e.g., ISI)", C:"No insomnia", O:"Incident MCI or cognitive decline"},
+    eligibility:`Cohorts with validated insomnia measures (ISI, structured clinical diagnosis); longitudinal preferred.`,
+    pubmed:`(("Insomnia"[Mesh] OR insomnia[tiab] OR "sleep onset insomnia"[tiab] OR "maintenance insomnia"[tiab]) AND ("Mild Cognitive Impairment"[Mesh] OR MCI[tiab] OR "cognitive decline"[tiab]))`,
+    embase:`('insomnia'/exp OR insomnia:ti,ab OR 'sleep onset insomnia':ti,ab OR 'maintenance insomnia':ti,ab) AND ('mild cognitive impairment'/exp OR 'mild cognitive impairment':ti,ab OR MCI:ti,ab)`,
+    methods:`Narrative and meta-analysis if effect sizes comparable. Adjust for depression and sedative medications.`,
+    prisma:`Searches: PubMed, Embase, PsycINFO; include studies reporting insomnia treatment status.`,
+    extractionCols:["Author","Year","Insomnia definition","Measure","N","Follow-up","Outcome","Effect","Adjusted covariates","Notes"],
+    mockRow:["Ahmed et al., 2017","BMC Geriatrics","Egypt","ISI>10","ISI","430","2.5 yrs","Incident MCI","RR 1.5 (1.0–2.2)","Adjusted for depression, meds","NOS: Moderate"],
+    robMock:["Study: Ahmed 2017","Tool: Newcastle-Ottawa","Overall: Moderate"],
+    prosperoDraft:
+`Title:
+Insomnia and risk of mild cognitive impairment: a systematic review
+
+Review question:
+Does insomnia (clinically defined or by validated scales) increase risk of developing MCI?
+
+Objectives:
+To synthesize evidence linking insomnia to incident MCI or accelerated cognitive decline.
+
+Eligibility:
+Adults ≥50; insomnia measured by ISI, clinical diagnosis, or validated tools; longitudinal studies preferred.
+
+Search sources:
+PubMed, Embase, PsycINFO, Web of Science.
+
+Risk of bias:
+Newcastle-Ottawa Scale. Extract confounders: depression, medications, comorbidities.
+
+Synthesis:
+Pooling of RR/OR where appropriate; narrative summary otherwise.`
+  },
+
+  // Review 6
+  {
+    id:6, title:"Circadian rhythm disturbances and MCI",
+    background:`Circadian misalignment (delayed phase, irregular rhythms) affects sleep timing and quality; it may influence cognition through disrupted sleep and metabolic dysregulation.`,
+    research_gap:`Few studies focus on circadian metrics (interdaily stability, intradaily variability) in MCI populations; cultural and light exposure modifiers are underexplored.`,
+    pico:{P:"Older adults with/without MCI", I:"Circadian disruption (actigraphy measures, melatonin phase)", C:"Regular rhythms", O:"MCI prevalence/progression or cognitive scores"},
+    eligibility:`Include actigraphy-based or melatonin-assessed circadian studies; longitudinal and cross-sectional allowed (note limited data).`,
+    pubmed:`(("Circadian Rhythm"[Mesh] OR "circadian disruption"[tiab] OR "chronotype"[tiab] OR "sleep-wake cycle"[tiab]) AND ("Mild Cognitive Impairment"[Mesh] OR MCI[tiab]))`,
+    embase:`('circadian rhythm'/exp OR 'circadian disruption':ti,ab OR chronotype:ti,ab) AND ('mild cognitive impairment'/exp OR 'mild cognitive impairment':ti,ab)`,
+    methods:`Likely narrative synthesis; meta-analysis if >3 similar actigraphy studies. Extract interdaily stability, intradaily variability, phase markers.`,
+    prisma:`Include cultural measures and light exposure data where available.`,
+    extractionCols:["Author","Year","Circadian metric","Device/assay","N","MCI vs control","Effect","Adjustment","Notes"],
+    mockRow:["Hassan et al., 2020","Chronobiology Int.","Egypt","Interdaily stability (actigraphy)","200","MCI vs controls","Lower stability in MCI (p<0.01)","Adjusted for activity levels","NOS: Low"],
+    robMock:["Study: Hassan 2020","Tool: Newcastle-Ottawa","Overall: Low"],
+    prosperoDraft:
+`Title:
+Circadian rhythm disturbances and mild cognitive impairment: a systematic review
+
+Review question:
+Are circadian rhythm disturbances associated with prevalence or progression of mild cognitive impairment?
+
+Objectives:
+To identify and synthesize studies examining circadian metrics (actigraphy, melatonin phase) in relation to MCI.
+
+Eligibility:
+Actigraphy or melatonin rhythm studies in adults; MCI or cognitive performance reported.
+
+Information sources:
+PubMed, Embase, Scopus, Web of Science.
+
+Synthesis:
+Narrative, with meta-analysis if sufficient homogeneous data.`
+  },
+
+  // Review 7
+  {
+    id:7, title:"Sleep duration (short/long) and MCI risk",
+    background:`Both short and long sleep durations have been linked with cognitive decline, but the association with incident MCI and dose-response relationship are unclear.`,
+    research_gap:`Heterogeneous measurement (self-report vs actigraphy) and inconsistent cutoffs; need pooled dose–response evidence for MCI risk.`,
+    pico:{P:"Older adults", I:"Short sleep (<6h) or long sleep (>9h)", C:"Reference 7–8h", O:"Incident MCI or cognitive decline"},
+    eligibility:`Prospective cohorts reporting categorized sleep duration and MCI outcomes; flag objective vs subjective measurement.`,
+    pubmed:`(("sleep duration"[tiab] OR "short sleep"[tiab] OR "long sleep"[tiab] OR "sleep time"[tiab]) AND ("Mild Cognitive Impairment"[Mesh] OR MCI[tiab]))`,
+    embase:`('sleep duration':ti,ab OR 'short sleep':ti,ab OR 'long sleep':ti,ab) AND ('mild cognitive impairment'/exp OR 'mild cognitive impairment':ti,ab)`,
+    methods:`Dose–response meta-analysis where data exist; subgroup by measurement type and baseline comorbidity.`,
+    prisma:`Extract whether naps included, measurement tool, and baseline health status.`,
+    extractionCols:["Author","Year","Sleep duration category","Measurement","N","Follow-up","Outcome","Effect","Confounders"],
+    mockRow:["Rodriguez et al., 2019","Sleep Health","Spain","Short sleep <6h","Self-report","1,050","4y","Incidence MCI","RR 1.6 (1.1–2.3)","Adjusted for depression, meds"],
+    robMock:["Study: Rodriguez 2019","Tool: Newcastle-Ottawa","Overall: Moderate"],
+    prosperoDraft:
+`Title:
+Sleep duration and risk of mild cognitive impairment: a systematic review and dose–response meta-analysis
+
+Review question:
+Is short or long sleep duration associated with increased risk of incident mild cognitive impairment?
+
+Objectives:
+To quantify associations between sleep duration categories and incident MCI, and model dose–response relationships.
+
+Eligibility:
+Prospective cohorts of older adults reporting sleep duration and incident MCI.
+
+Information sources:
+PubMed, Embase, Scopus, Web of Science.
+
+Synthesis:
+Dose–response meta-analysis (linear & non-linear models) where possible; subgroup by measurement method (objective vs subjective).`
+  },
+
+  // Review 8
+  {
+    id:8, title:"Sleep & biomarkers (amyloid, tau, imaging) in MCI",
+    background:`Sleep disturbance may alter amyloid and tau kinetics and neuroinflammation—biomarker studies (CSF, PET, plasma) can reveal mechanistic links in MCI.`,
+    research_gap:`Biomarker evidence is fragmented across modalities; a focused MCI biomarker synthesis would clarify mechanisms and timing.`,
+    pico:{P:"Adults with MCI", I:"Sleep disturbances (fragmentation, low SWS, OSA)", C:"Normal sleep", O:"Biomarker measures (CSF Aβ42, p-tau; amyloid/tau PET; plasma NfL; MRI atrophy)"},
+    eligibility:`Cross-sectional and longitudinal studies in MCI that report biomarkers in relation to sleep metrics.`,
+    pubmed:`(("Sleep"[Mesh] OR sleep[tiab] OR insomnia[tiab] OR "sleep fragmentation"[tiab] OR OSA[tiab]) AND ("Mild Cognitive Impairment"[Mesh] OR MCI[tiab]) AND ("Biomarkers"[Mesh] OR amyloid[tiab] OR tau[tiab] OR CSF[tiab] OR PET[tiab] OR MRI[tiab]))`,
+    embase:`('sleep'/exp OR sleep:ti,ab OR 'sleep fragmentation':ti,ab OR 'obstructive sleep apnea':ti,ab) AND ('mild cognitive impairment'/exp OR 'mild cognitive impairment':ti,ab) AND ('biomarker'/exp OR amyloid:ti,ab OR tau:ti,ab OR csf:ti,ab OR pet:ti,ab OR mri:ti,ab)`,
+    methods:`Extract assay details and timing. Synthesis mostly narrative; meta-analysis for pooled correlation coefficients when possible.`,
+    prisma:`Record timing between sleep assessment and biomarker collection; PET tracer; CSF assay method.`,
+    extractionCols:["Author","Year","Biomarker","Assay/tracer","Sleep metric","N","Association (coef/OR)","Adjustment","Direction"],
+    mockRow:["Lee et al., 2022","Alzheimer's & Dementia","CSF Aβ42 & p-tau; Amyloid PET","Lumbar CSF, 18F tracer","Actigraphy TST & efficiency","200","Shorter TST associated with ↑ p-tau (β=0.18,p=0.02)","Age, APOE4","Direction: worse sleep → worse biomarkers"],
+    robMock:["Study: Lee 2022","Tool: Newcastle-Ottawa","Overall: Low"],
+    prosperoDraft:
+`Title:
+Biomarkers of sleep disturbance in mild cognitive impairment: a systematic review
+
+Review question:
+Which CSF, PET, MRI, or blood biomarkers are associated with sleep disturbances in adults with MCI?
+
+Objectives:
+To synthesize evidence linking sleep disturbance with amyloid, tau, neuroinflammation, and neurodegeneration markers in MCI.
+
+Eligibility:
+Studies of adults with MCI assessing sleep and any biomarker modality (CSF, PET, plasma, MRI).
+
+Information sources:
+PubMed, Embase, Scopus, Web of Science, CENTRAL.
+
+Synthesis:
+Narrative by biomarker type; meta-analysis for pooled effect sizes where sufficient homogeneous data exist.`
+  },
+
+  // Review 9
+  {
+    id:9, title:"Wearables & smartphone sleep tracking in MCI",
+    background:`Consumer wearables are widely used for sleep tracking but their validity and predictive value in MCI populations is uncertain.`,
+    research_gap:`Validation and longitudinal predictive studies in MCI are limited; algorithm/version differences matter.`,
+    pico:{P:"Adults with MCI", I:"Consumer wearables/smartphone apps measuring sleep", C:"Gold-standard PSG or research actigraphy", O:"Validity metrics; association with cognitive change"},
+    eligibility:`Validation studies comparing consumer devices vs PSG/actigraphy in older adults/MCI and longitudinal wearable-based studies linking sleep metrics to cognition.`,
+    pubmed:`(("Wearable Electronic Devices"[Mesh] OR wearable[tiab] OR Fitbit[tiab] OR "Apple Watch"[tiab] OR smartphone[tiab] OR app[tiab]) AND ("Mild Cognitive Impairment"[Mesh] OR MCI[tiab]) AND (polysomnography[tiab] OR actigraphy[tiab] OR validation[tiab]))`,
+    embase:`('wearable electronic device'/exp OR wearable:ti,ab OR fitbit:ti,ab OR 'apple watch':ti,ab OR smartphone:ti,ab) AND ('mild cognitive impairment'/exp OR 'mild cognitive impairment':ti,ab) AND (polysomnography:ti,ab OR actigraph*:ti,ab OR validation:ti,ab)`,
+    methods:`Summarize validity (sensitivity/specificity, bias) vs PSG; meta-analysis of Bland-Altman bias across devices if ≥3 studies; summarize prospective findings linking wearables to cognition.`,
+    prisma:`Capture device model, firmware/algorithm version, and whether sleep staging validated.`,
+    extractionCols:["Author","Year","Device","Validation comparator","N","Population","Sleep metrics","Validity stats","Cognitive associations","Notes"],
+    mockRow:["Alvarez et al., 2023","JMIR","Spain","Fitbit vs PSG","60 older adults (10 MCI)","Community clinic","TST, awakenings","Bias -12 min (SD 20), sensitivity 0.85","Wearable sleep efficiency correlated with weekly app cognitive tests (r=0.28)","Notes: firmware v4"],
+    robMock:["Study: Alvarez 2023","Tool: Custom validation checklist","Overall: Moderate"],
+    prosperoDraft:
+`Title:
+Validity and predictive value of consumer wearables and smartphone sleep tracking in mild cognitive impairment populations: a systematic review
+
+Review question:
+How accurate are consumer wearables in measuring sleep compared to PSG/actigraphy in older adults/MCI, and do wearable-derived metrics predict cognitive decline?
+
+Objectives:
+1) Assess validity of consumer wearables vs PSG/actigraphy in older adults/MCI.
+2) Summarize prospective associations between wearable sleep metrics and cognitive outcomes in MCI.
+
+Eligibility:
+Validation and longitudinal studies involving consumer devices in MCI/older adult populations.
+
+Sources:
+PubMed, Embase, Web of Science, IEEE Xplore, conference proceedings.
+
+Synthesis:
+Pooling validation metrics where feasible; narrative summary of predictive evidence.`
+  },
+
+  // Review 10
+  {
+    id:10, title:"Cross-cultural differences in sleep & MCI associations",
+    background:`Cultural practices (siesta, late-night routines, religious timings) influence sleep patterns; the impact on MCI risk is under-studied, especially outside Western cohorts.`,
+    research_gap:`Most data are from North America/Europe; cross-cultural comparisons are sparse.`,
+    pico:{P:"Older adults (various cultural/geographic groups)", I:"Cultural sleep practices (siesta, late-night timing, Ramadan-related shifts)", C:"Western/standard sleep patterns", O:"MCI prevalence or cognitive outcomes"},
+    eligibility:`Cross-sectional and cohort studies from diverse regions (MENA, South Asia, Africa, Latin America) reporting sleep patterns and cognitive outcomes.`,
+    pubmed:`(("Sleep"[Mesh] OR sleep[tiab] OR "sleep patterns"[tiab] OR siesta[tiab] OR "cultural differences"[tiab] OR Ramadan[tiab]) AND ("Mild Cognitive Impairment"[Mesh] OR MCI[tiab]))`,
+    embase:`('sleep'/exp OR sleep:ti,ab OR 'sleep patterns':ti,ab OR siesta:ti,ab OR 'cultural differences':ti,ab OR Ramadan:ti,ab) AND ('mild cognitive impairment'/exp OR 'mild cognitive impairment':ti,ab OR MCI:ti,ab)`,
+    methods:`Narrative synthesis by region; meta-analysis if comparable prevalence estimates available. Extract social determinants and light exposure patterns.`,
+    prisma:`Prioritize inclusion of non-Western cohorts and document measurement differences (translated scales).`,
+    extractionCols:["Author","Year","Country/Region","Cultural sleep practice","Measure","N","MCI prevalence/score","Effect","Adjustment","Notes"],
+    mockRow:["El-Sayed et al., 2021","BMC Public Health","Egypt","Evening late-sleep cultural pattern","Questionnaire & actigraphy","300","Higher MCI prevalence in late-sleep group (15% vs 9%)","OR 1.7 (1.1–2.6)","Adjusted for education & vascular risk","NOS: Moderate"],
+    robMock:["Study: El-Sayed 2021","Tool: Newcastle-Ottawa","Overall: Moderate"],
+    prosperoDraft:
+`Title:
+Cross-cultural differences in sleep practices and associations with mild cognitive impairment: a systematic review
+
+Review question:
+How do cultural and regional sleep practices influence the prevalence or risk of MCI?
+
+Objectives:
+To summarize evidence from diverse geographic regions on associations between culturally patterned sleep behaviors and MCI.
+
+Eligibility:
+Studies from any region reporting sleep habits linked to cognitive outcomes in older adults.
+
+Sources:
+PubMed, Embase, Scopus, Web of Science, regional databases (e.g., IMEMR), grey literature.
+
+Synthesis:
+Narrative synthesis with possible meta-analysis for comparable prevalence data; highlight measurement and translation issues.`
+  }
+]; // end reviews
+
+/* ---------- BUILD UI ---------- */
+const tabsDiv = document.getElementById('tabs');
+const contentDiv = document.getElementById('content');
+
+function makeTabs(){
+  reviews.forEach((r, idx) => {
+    const b = document.createElement('button');
+    b.className = 'tab' + (idx===0 ? ' active' : '');
+    b.textContent = (idx+1)+'. '+ r.title;
+    b.onclick = ()=> { document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); b.classList.add('active'); renderContent(r); };
+    tabsDiv.appendChild(b);
+  });
+}
+function renderContent(r){
+  contentDiv.innerHTML = '';
+  const html = `
+    <div class="section">
+      <h2>Title</h2>
+      <div class="muted">${r.title}</div>
+    </div>
+
+    <div class="section">
+      <h2>Background & Research gap</h2>
+      <div>${r.background}</div>
+      <div style="margin-top:8px" class="muted"><strong>Research gap:</strong> ${r.research_gap}</div>
+    </div>
+
+    <div class="section row">
+      <div class="col">
+        <h2>PICO</h2>
+        <table><tbody>
+          <tr><th>Population (P)</th><td>${r.pico.P}</td></tr>
+          <tr><th>Intervention / Exposure (I)</th><td>${r.pico.I}</td></tr>
+          <tr><th>Comparator (C)</th><td>${r.pico.C}</td></tr>
+          <tr><th>Outcome (O)</th><td>${r.pico.O}</td></tr>
+        </tbody></table>
+      </div>
+      <div class="col">
+        <h2>Eligibility & Methods</h2>
+        <div class="muted"><strong>Eligibility:</strong> ${r.eligibility}</div>
+        <div style="margin-top:8px"><strong>Methods summary:</strong><br>${r.methods}</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Search Strings (copyable)</h2>
+      <div class="row">
+        <div class="col">
+          <strong>PubMed</strong>
+          <code id="pubmed-${r.id}">${r.pubmed}</code>
+          <button class="btn small" onclick="copyText('pubmed-${r.id}')">Copy PubMed</button>
+        </div>
+        <div class="col">
+          <strong>Embase (Ovid)</strong>
+          <code id="embase-${r.id}">${r.embase}</code>
+          <button class="btn small" onclick="copyText('embase-${r.id}')">Copy Embase</button>
+        </div>
+      </div>
+      <div style="margin-top:8px" class="muted"><strong>PRISMA/Search note:</strong> ${r.prisma || 'See methods section.'}</div>
+    </div>
+
+    <div class="section">
+      <h2>Data extraction template & mock row</h2>
+      <div class="muted">Columns (copy into Excel): ${r.extractionCols.join(' | ')}</div>
+      <table>
+        <thead><tr>${r.extractionCols.map(c=>'<th>'+c+'</th>').join('')}</tr></thead>
+        <tbody><tr>${(r.mockRow||[]).map(v=>'<td>'+ (v===null?'-':v) +'</td>').join('')}</tr></tbody>
+      </table>
+      <div style="margin-top:8px">
+        <button class="btn" onclick="copyRow(${r.id})">Copy extraction header & mock row (tab-separated)</button>
+        <span id="copy-note-${r.id}" class="copy-note" style="display:none">Copied ✅</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Risk of bias (suggested tool) & mock</h2>
+      <div class="muted">Suggested tool: ${Array.isArray(r.robMock) ? (r.robMock[1] || 'See below') : 'See below'}</div>
+      <table>
+        <thead><tr><th>Study</th><th>Tool</th><th>Key domains / notes</th><th>Overall</th></tr></thead>
+        <tbody><tr>${r.robMock ? '<td>'+ (r.robMock[0]||'-') +'</td><td>'+ (r.robMock[1]||'-') +'</td><td>'+ (r.robMock[2]||'-') +'</td><td>'+ (r.robMock[5]||r.robMock[4]||'-') +'</td>' : '<td>-</td><td>-</td><td>-</td><td>-</td>'}</tr></tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>PROSPERO-ready draft (copy & paste)</h2>
+      <div class="muted">Click <strong>Copy PROSPERO</strong> to copy the full registration text below.</div>
+      <textarea id="prospero-${r.id}">${r.prosperoDraft}</textarea>
+      <div style="margin-top:6px">
+        <button class="btn" onclick="copyTextArea('prospero-${r.id}')">Copy PROSPERO</button>
+        <button class="btn" onclick="downloadDraft(${r.id})">Download .txt</button>
+        <span id="prospero-note-${r.id}" class="copy-note" style="display:none">Copied ✅</span>
+      </div>
+    </div>
+  `;
+  contentDiv.insertAdjacentHTML('beforeend', html);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ---------- COPY / DOWNLOAD helpers ---------- */
+function copyText(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+  navigator.clipboard.writeText(el.textContent.trim()).then(()=> {
+    showTempNote(id);
+  });
+}
+function copyTextArea(id){
+  const ta = document.getElementById(id);
+  navigator.clipboard.writeText(ta.value).then(()=> {
+    const note = document.getElementById(`prospero-note-${id.split('-')[1]}`);
+    if(note) { note.style.display='inline-block'; setTimeout(()=>note.style.display='none',2200); }
+  });
+}
+function showTempNote(id){
+  const noteId = 'copy-note-'+ id.split('-')[1];
+  const note = document.getElementById(noteId);
+  if(note){ note.style.display='inline-block'; setTimeout(()=>note.style.display='none',1800); }
+}
+function copyRow(id){
+  const r = reviews.find(x=>x.id===id);
+  if(!r) return;
+  const header = r.extractionCols.join('\\t');
+  const row = (r.mockRow||[]).join('\\t');
+  navigator.clipboard.writeText(header + '\\n' + row).then(()=> showTempNote('ex-'+id));
+}
+function downloadDraft(id){
+  const r = reviews.find(x=>x.id===id);
+  if(!r) return;
+  const blob = new Blob([r.prosperoDraft], {type: 'text/plain;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = r.title.replace(/[^a-z0-9]/gi,'_').toLowerCase() + '_PROSPERO.txt';
+  document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+}
+
+/* ---------- Init ---------- */
+makeTabs();
+renderContent(reviews[0]);
+
+</script>
+</body>
+</html>
+
