@@ -1,1 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep and MCI Research Toolkit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #eaeaea;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .copy-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .copy-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sleep and Mild Cognitive Impairment (MCI) Research Toolkit</h1>
+    
+    <div class="section" id="research-gaps">
+        <h2>10 Current Research Gaps in Sleep and MCI</h2>
+        <button class="copy-btn" onclick="copyToClipboard('research-gaps-content')">Copy Research Gaps</button>
+        <div id="research-gaps-content">
+            <ol>
+                <li>The longitudinal relationship between specific sleep architecture changes (e.g., REM reduction, slow-wave sleep loss) and progression from MCI to dementia subtypes</li>
+                <li>Optimal sleep duration thresholds for cognitive preservation in MCI populations across different ethnic groups</li>
+                <li>Effectiveness of circadian rhythm interventions (light therapy, melatonin) on cognitive outcomes in MCI</li>
+                <li>Bidirectional relationships between sleep-disordered breathing and amyloid/tau pathology in preclinical MCI</li>
+                <li>Impact of sleep medication classes on MCI progression trajectories (comparative effectiveness)</li>
+                <li>Sleep fragmentation as an independent predictor of specific cognitive domain decline in MCI subtypes</li>
+                <li>Cultural variations in sleep quality perception and its association with cognitive complaints in MCI</li>
+                <li>Mechanisms linking sleep spindle abnormalities to memory consolidation deficits in amnestic MCI</li>
+                <li>Interaction between APOE genotype and sleep interventions for cognitive protection in MCI</li>
+                <li>Cost-effectiveness of sleep disorder screening and treatment in MCI clinical pathways</li>
+            </ol>
+        </div>
+    </div>
+    
+    <div class="section" id="systematic-reviews">
+        <h2>10 Systematic Review Ideas</h2>
+        <ol>
+            <li><a href="#review1">Melatonin supplementation effects on cognitive function in MCI</a></li>
+            <li><a href="#review2">Obstructive sleep apnea treatment and MCI progression</a></li>
+            <li><a href="#review3">REM sleep behavior disorder as predictor of dementia in MCI</a></li>
+            <li><a href="#review4">Sleep duration and conversion rates from MCI to dementia</a></li>
+            <li><a href="#review5">Effectiveness of CBT-I for sleep complaints in MCI</a></li>
+            <li><a href="#review6">Sleep spindle characteristics as biomarkers in MCI</a></li>
+            <li><a href="#review7">Daytime napping patterns and cognitive decline in MCI</a></li>
+            <li><a href="#review8">Impact of sedative-hypnotics on cognitive trajectories in MCI</a></li>
+            <li><a href="#review9">Actigraphy-measured sleep parameters and MCI subtypes</a></li>
+            <li><a href="#review10">Light therapy for circadian rhythm disturbances in MCI</a></li>
+        </ol>
+    </div>
+    
+    <!-- Example for one systematic review (others would follow same pattern) -->
+    <div class="section" id="review1">
+        <h2>1. Melatonin supplementation effects on cognitive function in MCI</h2>
+        
+        <h3>PubMed Search Strategy</h3>
+        <button class="copy-btn" onclick="copyToClipboard('pubmed-search1')">Copy PubMed Strategy</button>
+        <pre id="pubmed-search1">
+("Melatonin"[Mesh] OR melatonin[tiab] OR "N-acetyl-5-methoxytryptamine"[tiab] OR "Circadin"[tiab]) 
+AND 
+("Cognitive Dysfunction"[Mesh] OR "Mild Cognitive Impairment"[Mesh] OR "cognitive dysfunction"[tiab] OR "mild cognitive impairment"[tiab] OR MCI[tiab]) 
+AND 
+("Sleep"[Mesh] OR sleep[tiab] OR "sleep quality"[tiab] OR "sleep disturbance"[tiab] OR insomnia[tiab]) 
+AND 
+("Cognition"[Mesh] OR cognition[tiab] OR "cognitive function"[tiab] OR "memory"[tiab] OR "executive function"[tiab])</pre>
+        
+        <h3>Embase Search Strategy</h3>
+        <button class="copy-btn" onclick="copyToClipboard('embase-search1')">Copy Embase Strategy</button>
+        <pre id="embase-search1">
+('melatonin'/exp OR melatonin:ti,ab OR 'n acetyl 5 methoxytryptamine':ti,ab OR circadin:ti,ab) 
+AND 
+('cognitive defect'/exp OR 'mild cognitive impairment'/exp OR 'cognitive dysfunction':ti,ab OR 'mild cognitive impairment':ti,ab OR mci:ti,ab) 
+AND 
+('sleep'/exp OR sleep:ti,ab OR 'sleep quality':ti,ab OR 'sleep disturbance':ti,ab OR insomnia:ti,ab) 
+AND 
+('cognition'/exp OR cognition:ti,ab OR 'cognitive function':ti,ab OR memory:ti,ab OR 'executive function':ti,ab)</pre>
+        
+        <h3>Data Extraction Template</h3>
+        <button class="copy-btn" onclick="copyToClipboard('data-extraction1')">Copy Data Extraction</button>
+        <table id="data-extraction1">
+            <tr>
+                <th>Author, Year</th>
+                <th>Sample Size</th>
+                <th>Study Design</th>
+                <th>Population</th>
+                <th>Melatonin Intervention</th>
+                <th>Sleep Measures</th>
+                <th>Cognitive Outcomes</th>
+                <th>Key Results</th>
+                <th>Confounders</th>
+                <th>Risk of Bias</th>
+            </tr>
+            <tr>
+                <td>Smith et al., 2020</td>
+                <td>n=120</td>
+                <td>RCT</td>
+                <td>Amnestic MCI, age 65-80</td>
+                <td>5mg prolonged-release, 12 weeks</td>
+                <td>PSG, actigraphy, PSQI</td>
+                <td>MMSE, ADAS-Cog, Rey AVLT</td>
+                <td>Improved sleep efficiency (+12%), no significant cognitive change</td>
+                <td>Age, baseline cognition, APOE status</td>
+                <td>Low</td>
+            </tr>
+            <tr>
+                <td>Zhang et al., 2018</td>
+                <td>n=85</td>
+                <td>Open-label</td>
+                <td>MCI with insomnia, age >60</td>
+                <td>2mg fast-release, 8 weeks</td>
+                <td>ISI, sleep diary</td>
+                <td>MoCA, digit span</td>
+                <td>Reduced insomnia symptoms, improved working memory</td>
+                <td>Concurrent medications, depression</td>
+                <td>Moderate</td>
+            </tr>
+        </table>
+        
+        <h3>Risk of Bias Assessment</h3>
+        <button class="copy-btn" onclick="copyToClipboard('bias-table1')">Copy Bias Table</button>
+        <table id="bias-table1">
+            <tr>
+                <th>Study</th>
+                <th>Randomization</th>
+                <th>Allocation Concealment</th>
+                <th>Blinding</th>
+                <th>Incomplete Data</th>
+                <th>Selective Reporting</th>
+                <th>Other Bias</th>
+                <th>Overall</th>
+            </tr>
+            <tr>
+                <td>Smith et al., 2020</td>
+                <td>Low</td>
+                <td>Low</td>
+                <td>Low</td>
+                <td>Low</td>
+                <td>Low</td>
+                <td>Low</td>
+                <td>Low</td>
+            </tr>
+            <tr>
+                <td>Zhang et al., 2018</td>
+                <td>High</td>
+                <td>High</td>
+                <td>High</td>
+                <td>Low</td>
+                <td>Low</td>
+                <td>Moderate</td>
+                <td>High</td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- Additional systematic reviews would be added here following the same pattern -->
+    
+    <div class="section" id="structured-document">
+        <h2>Structured Document Summary</h2>
+        <button class="copy-btn" onclick="copyToClipboard('structured-doc')">Copy Full Document</button>
+        <pre id="structured-doc">
+SLEEP AND MCI RESEARCH TOOLKIT - STRUCTURED DOCUMENT
 
+BACKGROUND:
+Emerging evidence suggests bidirectional relationships between sleep disturbances and mild cognitive impairment (MCI). Sleep architecture changes (reduced slow-wave and REM sleep) often precede MCI diagnosis, while sleep disorders (insomnia, sleep apnea) may accelerate cognitive decline. Potential mechanisms include amyloid clearance during deep sleep, tau pathology propagation, and memory consolidation impairment. Understanding these relationships offers opportunities for early intervention and cognitive preservation.
+
+RESEARCH OPPORTUNITIES:
+1. Longitudinal sleep architecture changes and MCI progression
+2. Optimal sleep duration thresholds in MCI
+3. Circadian interventions for cognitive outcomes
+4. Sleep-disordered breathing and AD biomarkers
+5. Comparative effectiveness of sleep medications
+6. Sleep fragmentation and domain-specific decline
+7. Cultural variations in sleep perception
+8. Sleep spindles and memory consolidation
+9. APOE-sleep intervention interactions
+10. Cost-effectiveness of sleep screening
+
+SYSTEMATIC REVIEW EXAMPLE: MELATONIN IN MCI
+
+PubMed Search Strategy:
+("Melatonin"[Mesh] OR melatonin[tiab] OR "N-acetyl-5-methoxytryptamine"[tiab] OR "Circadin"[tiab]) 
+AND ("Cognitive Dysfunction"[Mesh] OR "Mild Cognitive Impairment"[Mesh] OR "cognitive dysfunction"[tiab] OR "mild cognitive impairment"[tiab] OR MCI[tiab]) 
+AND ("Sleep"[Mesh] OR sleep[tiab] OR "sleep quality"[tiab] OR "sleep disturbance"[tiab] OR insomnia[tiab]) 
+AND ("Cognition"[Mesh] OR cognition[tiab] OR "cognitive function"[tiab] OR "memory"[tiab] OR "executive function"[tiab])
+
+Embase Search Strategy:
+('melatonin'/exp OR melatonin:ti,ab OR 'n acetyl 5 methoxytryptamine':ti,ab OR circadin:ti,ab) 
+AND ('cognitive defect'/exp OR 'mild cognitive impairment'/exp OR 'cognitive dysfunction':ti,ab OR 'mild cognitive impairment':ti,ab OR mci:ti,ab) 
+AND ('sleep'/exp OR sleep:ti,ab OR 'sleep quality':ti,ab OR 'sleep disturbance':ti,ab OR insomnia:ti,ab) 
+AND ('cognition'/exp OR cognition:ti,ab OR 'cognitive function':ti,ab OR memory:ti,ab OR 'executive function':ti,ab)
+
+DATA EXTRACTION TABLE (EXAMPLE):
+
+| Author, Year | Sample Size | Study Design | Population | Melatonin Intervention | Sleep Measures | Cognitive Outcomes | Key Results | Confounders | Risk of Bias |
+|-------------|------------|-------------|------------|----------------------|---------------|-------------------|------------|------------|-------------|
+| Smith et al., 2020 | n=120 | RCT | Amnestic MCI, age 65-80 | 5mg prolonged-release, 12 weeks | PSG, actigraphy, PSQI | MMSE, ADAS-Cog, Rey AVLT | Improved sleep efficiency (+12%), no significant cognitive change | Age, baseline cognition, APOE status | Low |
+| Zhang et al., 2018 | n=85 | Open-label | MCI with insomnia, age >60 | 2mg fast-release, 8 weeks | ISI, sleep diary | MoCA, digit span | Reduced insomnia symptoms, improved working memory | Concurrent medications, depression | Moderate |
+
+RISK OF BIAS TABLE (EXAMPLE):
+
+| Study | Randomization | Allocation Concealment | Blinding | Incomplete Data | Selective Reporting | Other Bias | Overall |
+|-------|-------------|----------------------|---------|----------------|-------------------|-----------|--------|
+| Smith et al., 2020 | Low | Low | Low | Low | Low | Low | Low |
+| Zhang et al., 2018 | High | High | High | Low | Low | Moderate | High |
+        </pre>
+    </div>
+    
+    <script>
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const range = document.createRange();
+            range.selectNode(element);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            alert('Copied to clipboard!');
+        }
+    </script>
+</body>
+</html>
