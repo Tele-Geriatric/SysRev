@@ -1,0 +1,1183 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Sleep & MCI Research Hub — 10 Systematic Review Packs</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  
+  :root{
+    --primary: #6366f1;
+    --primary-light: #818cf8;
+    --secondary: #06b6d4;
+    --accent: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --success: #22c55e;
+    --purple: #8b5cf6;
+    --pink: #ec4899;
+    --orange: #f97316;
+    
+    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --glass: rgba(255, 255, 255, 0.1);
+    --text-dark: #1f2937;
+    --text-muted: #6b7280;
+    --border: rgba(255, 255, 255, 0.2);
+    --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+  
+  .wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  header {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0 0 1rem 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  header p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 1.5rem auto;
+  }
+  
+  .author-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .tab {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .tab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .tab:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+  
+  .tab:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .tab.active {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.4);
+  }
+  
+  .tab.active::before {
+    transform: scaleX(1);
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .tab-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .tab.active .tab-number {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .tab-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+  
+  .panel {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 2.5rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  
+  .section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    border-left: 4px solid var(--primary);
+  }
+  
+  .section h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .section-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+  
+  .pico-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .pico-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pico-item.population { border-left-color: var(--success); }
+  .pico-item.intervention { border-left-color: var(--warning); }
+  .pico-item.comparison { border-left-color: var(--danger); }
+  .pico-item.outcome { border-left-color: var(--purple); }
+  
+  .pico-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .pico-item.population .pico-label { color: var(--success); }
+  .pico-item.intervention .pico-label { color: var(--warning); }
+  .pico-item.comparison .pico-label { color: var(--danger); }
+  .pico-item.outcome .pico-label { color: var(--purple); }
+  
+  code {
+    display: block;
+    background: linear-gradient(135deg, #1e293b, #334155);
+    color: #e2e8f0;
+    padding: 1.5rem;
+    border-radius: 12px;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+    white-space: pre-wrap;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow-x: auto;
+  }
+  
+  .code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .code-title {
+    font-weight: 600;
+    color: var(--secondary);
+    font-size: 0.9rem;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  th {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  td {
+    font-size: 0.9rem;
+  }
+  
+  tr:hover {
+    background: rgba(99, 102, 241, 0.05);
+  }
+  
+  .btn {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+  }
+  
+  .btn.small {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .copy-success {
+    background: var(--success) !important;
+    animation: pulse 0.5s ease;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  textarea {
+    width: 100%;
+    height: 200px;
+    background: white;
+    color: var(--text-dark);
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1rem;
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+  }
+  
+  textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+  
+  footer {
+    margin-top: 3rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
+  .stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid var(--primary);
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  @media (max-width: 768px) {
+    .wrap {
+      padding: 1rem;
+    }
+    
+    header {
+      padding: 2rem 1.5rem;
+    }
+    
+    header h1 {
+      font-size: 2rem;
+    }
+    
+    .panel {
+      padding: 1.5rem;
+    }
+    
+    .tabs {
+      grid-template-columns: 1fr;
+    }
+    
+    .pico-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🧠 Sleep & MCI Research Hub</h1>
+    <p>Comprehensive systematic review packages exploring the relationship between sleep disturbances and mild cognitive impairment. Each review includes PICO framework, search strategies, data extraction templates, and PROSPERO-ready protocols.</p>
+    <div class="author-badge">
+      👨‍🔬 Author: Nadir
+    </div>
+  </header>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">10</div>
+      <div class="stat-label">Review Protocols</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">PROSPERO</div>
+      <div class="stat-label">Ready Templates</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">Complete</div>
+      <div class="stat-label">Search Strategies</div>
+    </div>
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+
+  <div id="content" class="panel"></div>
+
+  <footer>
+    <h3>🚀 Ready to Start Your Research?</h3>
+    <p>Save this file locally and use the copy buttons to transfer search strings and PROSPERO drafts directly to your research workflow. Each protocol has been carefully crafted to meet systematic review standards.</p>
+  </footer>
+</div>
+
+<script>
+const reviews = [
+  {
+    id: 1, 
+    title: "Sleep disturbances as a risk factor for MCI",
+    background: `Sleep disturbances (insomnia, sleep fragmentation, obstructive sleep apnea, circadian disruption) have been implicated in cognitive decline. Poor sleep reduces glymphatic clearance (amyloid/tau), impairs memory consolidation, and increases vascular/inflammatory risk — potentially increasing incident MCI risk.`,
+    research_gap: `Most reviews focus on dementia; fewer synthesize evidence specifically on incident MCI across sleep types and measurement methods.`,
+    pico: {
+      P: "Cognitively healthy adults ≥50 years",
+      I: "Sleep disturbances (insomnia, poor sleep quality, OSA, circadian disorders)",
+      C: "No sleep disturbance or normal sleep patterns",
+      O: "Incident MCI (Petersen criteria, MoCA<26, CDR 0.5)"
+    },
+    eligibility: `Inclusion: Longitudinal cohorts or case-control studies; sleep assessed by PSG/actigraphy/validated questionnaire; reported incident MCI. Exclusion: cross-sectional studies, dementia outcomes only, pediatric populations.`,
+    pubmed_search: `("Sleep Disorders"[Mesh] OR "Sleep Initiation and Maintenance Disorders"[Mesh] OR "Sleep Apnea, Obstructive"[Mesh] OR insomnia[tiab] OR "sleep quality"[tiab] OR "sleep disturbance"[tiab]) AND ("Cognitive Dysfunction"[Mesh] OR "mild cognitive impairment"[tiab] OR MCI[tiab]) AND (longitudinal[tiab] OR cohort[tiab] OR prospective[tiab])`,
+    embase_search: `('sleep disorder'/exp OR 'insomnia'/exp OR 'sleep apnea'/exp OR 'sleep quality':ab,ti OR 'sleep disturbance':ab,ti) AND ('mild cognitive impairment'/exp OR 'cognitive dysfunction'/exp OR 'MCI':ab,ti) AND ('longitudinal study'/exp OR 'cohort analysis'/exp OR 'prospective study'/exp)`,
+    data_extraction: [
+      { field: "Study ID", example: "Smith2023" },
+      { field: "Design", example: "Prospective cohort" },
+      { field: "Population", example: "Community-dwelling adults 65+" },
+      { field: "Sample Size", example: "N=1,247" },
+      { field: "Sleep Measure", example: "Pittsburgh Sleep Quality Index" },
+      { field: "MCI Definition", example: "Petersen criteria + neuropsych testing" },
+      { field: "Follow-up", example: "5.2 years (mean)" },
+      { field: "Main Finding", example: "Poor sleep quality HR=1.34 (1.12-1.61)" }
+    ],
+    rob_domains: [
+      { domain: "Selection bias", assessment: "Low risk - Random sampling from population registry" },
+      { domain: "Information bias", assessment: "Moderate risk - Self-reported sleep measure" },
+      { domain: "Confounding", assessment: "Low risk - Adjusted for age, education, APOE4, comorbidities" },
+      { domain: "Attrition bias", assessment: "Low risk - 89% retention, missing data analysis performed" }
+    ],
+    prospero_draft: `TITLE: Sleep disturbances as risk factors for incident mild cognitive impairment: A systematic review and meta-analysis
+
+REVIEW QUESTION: Do sleep disturbances increase the risk of developing mild cognitive impairment in cognitively healthy older adults?
+
+SEARCHES: PubMed, Embase, PsycINFO, CINAHL from inception to [DATE]. Grey literature via OpenGrey, conference abstracts.
+
+TYPES OF STUDY: Longitudinal cohort studies, case-control studies
+
+CONDITION: Mild cognitive impairment (incident cases)
+
+PARTICIPANTS: Cognitively healthy adults aged ≥50 years
+
+INTERVENTION: Sleep disturbances (insomnia, poor sleep quality, sleep apnea, circadian disorders)
+
+COMPARATOR: Normal sleep or no sleep disturbance
+
+OUTCOME: Incident MCI defined by standardized criteria (Petersen, MoCA<26, CDR 0.5)
+
+DATA EXTRACTION: Two reviewers independently extract study characteristics, participant demographics, sleep measures, MCI definitions, effect estimates, and confounders.
+
+RISK OF BIAS: Newcastle-Ottawa Scale for cohort studies, adapted tool for case-control studies
+
+STRATEGY FOR DATA SYNTHESIS: Random-effects meta-analysis if ≥3 studies with comparable measures. Subgroup analyses by sleep type, measurement method, follow-up duration.`
+  },
+  {
+    id: 2,
+    title: "Sleep duration and cognitive decline trajectories",
+    background: `Both short (<6h) and long (>9h) sleep durations have been associated with cognitive decline. The U-shaped relationship may reflect different mechanisms: short sleep impairs consolidation and clearance, while long sleep may indicate underlying pathology or poor sleep quality.`,
+    research_gap: `Limited synthesis of longitudinal evidence specifically examining sleep duration's impact on MCI development, with most studies focusing on broader cognitive outcomes.`,
+    pico: {
+      P: "Adults ≥50 years with normal cognition at baseline",
+      I: "Short sleep duration (<6 hours) or long sleep duration (>9 hours)",
+      C: "Normal sleep duration (7-8 hours)",
+      O: "Incident MCI or cognitive decline to MCI threshold"
+    },
+    eligibility: `Inclusion: Longitudinal studies with ≥2 years follow-up; objective or subjective sleep duration measurement; standardized MCI diagnosis. Exclusion: Cross-sectional design, dementia outcomes only, sleep intervention studies.`,
+    pubmed_search: `("sleep duration"[tiab] OR "sleep time"[tiab] OR "hours of sleep"[tiab] OR "short sleep"[tiab] OR "long sleep"[tiab]) AND ("Cognitive Dysfunction"[Mesh] OR "mild cognitive impairment"[tiab] OR MCI[tiab] OR "cognitive decline"[tiab]) AND (longitudinal[tiab] OR prospective[tiab] OR cohort[tiab])`,
+    embase_search: `('sleep duration':ab,ti OR 'sleep time':ab,ti OR 'short sleep':ab,ti OR 'long sleep':ab,ti) AND ('mild cognitive impairment'/exp OR 'cognitive decline':ab,ti OR 'MCI':ab,ti) AND ('longitudinal study'/exp OR 'prospective study'/exp)`,
+    data_extraction: [
+      { field: "Study ID", example: "Johnson2022" },
+      { field: "Design", example: "Population-based cohort" },
+      { field: "Sample Size", example: "N=2,156" },
+      { field: "Age Range", example: "60-85 years" },
+      { field: "Sleep Assessment", example: "Self-report questionnaire" },
+      { field: "Duration Categories", example: "<6h, 6-8h, >8h" },
+      { field: "Follow-up Period", example: "8 years" },
+      { field: "MCI Incidence", example: "Short: 18.2%, Normal: 12.1%, Long: 16.8%" }
+    ],
+    rob_domains: [
+      { domain: "Selection bias", assessment: "Low risk - Representative community sample" },
+      { domain: "Measurement bias", assessment: "Moderate risk - Self-reported sleep duration" },
+      { field: "Confounding", assessment: "Low risk - Comprehensive covariate adjustment" },
+      { domain: "Follow-up bias", assessment: "Low risk - High retention rate (91%)" }
+    ],
+    prospero_draft: `TITLE: Sleep duration and risk of mild cognitive impairment: A systematic review and dose-response meta-analysis
+
+REVIEW QUESTION: What is the relationship between sleep duration and incident mild cognitive impairment in older adults?
+
+SEARCHES: PubMed, Embase, PsycINFO from inception to [DATE]. Reference lists of included studies and relevant reviews.
+
+TYPES OF STUDY: Longitudinal cohort studies with ≥2 years follow-up
+
+CONDITION: Mild cognitive impairment (incident)
+
+PARTICIPANTS: Adults aged ≥50 years, cognitively normal at baseline
+
+INTERVENTION: Short sleep duration (<6 hours) or long sleep duration (>9 hours)
+
+COMPARATOR: Normal sleep duration (7-8 hours)
+
+OUTCOME: Incident MCI by standardized criteria
+
+DATA EXTRACTION: Study design, population characteristics, sleep duration measurement, MCI definition, follow-up duration, effect estimates with confidence intervals.
+
+RISK OF BIAS: Newcastle-Ottawa Scale
+
+STRATEGY FOR DATA SYNTHESIS: Random-effects meta-analysis. Dose-response analysis using restricted cubic splines. Subgroup analyses by age, sex, measurement method.`
+  },
+  {
+    id: 3,
+    title: "Sleep architecture changes and MCI risk",
+    background: `Age-related changes in sleep architecture (reduced slow-wave sleep, increased sleep fragmentation, altered REM patterns) may contribute to cognitive decline through impaired memory consolidation and reduced glymphatic clearance during deep sleep phases.`,
+    research_gap: `Few systematic reviews have examined specific sleep architecture parameters as predictors of MCI, with most focusing on subjective sleep measures rather than objective polysomnographic data.`,
+    pico: {
+      P: "Older adults (≥60 years) with normal cognition",
+      I: "Altered sleep architecture (reduced SWS, increased fragmentation, REM changes)",
+      C: "Normal sleep architecture for age",
+      O: "Development of MCI over follow-up"
+    },
+    eligibility: `Inclusion: Studies using polysomnography or actigraphy; longitudinal design ≥1 year; standardized MCI criteria. Exclusion: Sleep disorder treatment studies, cross-sectional analyses, subjective sleep measures only.`,
+    pubmed_search: `("Sleep Stages"[Mesh] OR "sleep architecture"[tiab] OR "slow wave sleep"[tiab] OR "REM sleep"[tiab] OR "sleep fragmentation"[tiab] OR polysomnography[tiab]) AND ("Cognitive Dysfunction"[Mesh] OR "mild cognitive impairment"[tiab] OR MCI[tiab]) AND (longitudinal[tiab] OR prospective[tiab])`,
+    embase_search: `('sleep stage'/exp OR 'sleep architecture':ab,ti OR 'slow wave sleep':ab,ti OR 'REM sleep':ab,ti OR 'sleep fragmentation':ab,ti OR 'polysomnography'/exp) AND ('mild cognitive impairment'/exp OR 'MCI':ab,ti) AND ('longitudinal study'/exp OR 'prospective study'/exp)`,
+    data_extraction: [
+      { field: "Study ID", example: "Chen2023" },
+      { field: "Setting", example: "Sleep clinic + community" },
+      { field: "N", example: "456" },
+      { field: "PSG Parameters", example: "SWS%, REM%, arousal index, sleep efficiency" },
+      { field: "Cognitive Assessment", example: "Comprehensive neuropsych battery" },
+      { field: "Follow-up", example: "3.5 years median" },
+      { field: "Key Finding", example: "SWS <15% associated with 2.1x MCI risk" },
+      { field: "Confounders", example: "Age, sex, education, AHI, medications" }
+    ],
+    rob_domains: [
+      { domain: "Selection bias", assessment: "Moderate risk - Sleep clinic recruitment may introduce bias" },
+      { domain: "Detection bias", assessment: "Low risk - Objective PSG measures, blinded cognitive assessment" },
+      { domain: "Confounding", assessment: "Low risk - Adjusted for sleep disorders and medications" },
+      { domain: "Attrition bias", assessment: "Moderate risk - 78% completion rate" }
+    ],
+    prospero_draft: `TITLE: Sleep architecture parameters as predictors of mild cognitive impairment: A systematic review of polysomnographic studies
+
+REVIEW QUESTION: Do objective sleep architecture changes predict incident mild cognitive impairment in older adults?
+
+SEARCHES: PubMed, Embase, PsycINFO, Cochrane Library from inception to [DATE]. Conference abstracts from sleep and neurology societies.
+
+TYPES OF STUDY: Longitudinal studies using polysomnography or research-grade actigraphy
+
+CONDITION: Mild cognitive impairment (incident)
+
+PARTICIPANTS: Adults aged ≥60 years, cognitively normal at baseline
+
+INTERVENTION: Altered sleep architecture (reduced slow-wave sleep, increased fragmentation, REM changes)
+
+COMPARATOR: Normal sleep architecture parameters for age
+
+OUTCOME: Incident MCI by standardized diagnostic criteria
+
+DATA EXTRACTION: Sleep architecture parameters (SWS%, REM%, sleep efficiency, arousal index), cognitive measures, follow-up duration, effect estimates.
+
+RISK OF BIAS: Modified Newcastle-Ottawa Scale adapted for sleep studies
+
+STRATEGY FOR DATA SYNTHESIS: Narrative synthesis due to expected heterogeneity in PSG parameters. Meta-analysis if ≥3 studies report comparable measures.`
+  },
+  {
+    id: 4,
+    title: "Circadian rhythm disruption and cognitive decline",
+    background: `Circadian rhythm disruption affects multiple physiological processes relevant to brain health, including hormone regulation, inflammatory responses, and cellular repair mechanisms. Disrupted circadian rhythms may accelerate cognitive aging and increase MCI risk.`,
+    research_gap: `Limited systematic evidence on circadian rhythm markers as predictors of MCI, with most research focusing on sleep-wake patterns rather than molecular circadian indicators.`,
+    pico: {
+      P: "Community-dwelling older adults without dementia",
+      I: "Circadian rhythm disruption (irregular sleep-wake, shift work history, chronotype mismatch)",
+      C: "Regular circadian rhythms",
+      O: "Incident MCI or progression to MCI"
+    },
+    eligibility: `Inclusion: Longitudinal studies ≥2 years; circadian measures (actigraphy, melatonin, chronotype); standardized MCI diagnosis. Exclusion: Intervention studies, cross-sectional design, dementia outcomes only.`,
+    pubmed_search: `("Circadian Rhythm"[Mesh] OR "circadian disruption"[tiab] OR chronotype[tiab] OR "shift work"[tiab] OR "irregular sleep"[tiab] OR melatonin[tiab]) AND ("Cognitive Dysfunction"[Mesh] OR "mild cognitive impairment"[tiab] OR MCI[tiab]) AND (longitudinal[tiab] OR cohort[tiab])`,
+    embase_search: `('circadian rhythm'/exp OR 'circadian disruption':ab,ti OR 'chronotype':ab,ti OR 'shift work':ab,ti OR 'melatonin'/exp) AND ('mild cognitive impairment'/exp OR 'MCI':ab,ti) AND ('longitudinal study'/exp OR 'cohort analysis'/exp)`,
+    data_extraction: [
+      { field: "Study ID", example: "Rodriguez2023" },
+      { field: "Population", example: "Retired adults 65-80 years" },
+      { field: "Sample Size", example: "N=892" },
+      { field: "Circadian Measure", example: "7-day actigraphy + MEQ chronotype" },
+      { field: "Disruption Definition", example: "Irregular sleep-wake pattern, extreme chronotype" },
+      { field: "Cognitive Assessment", example: "MoCA, detailed neuropsych testing" },
+      { field: "Follow-up", example: "4 years" },
+      { field: "Main Result", example: "Circadian disruption OR=1.67 (1.23-2.28)" }
+    ],
+    rob_domains: [
+      { domain: "Selection bias", assessment: "Low risk - Population-based sampling" },
+      { domain: "Information bias", assessment: "Low risk - Objective actigraphy measures" },
+      { domain: "Confounding", assessment: "Moderate risk - Limited adjustment for sleep disorders" },
+      { domain: "Attrition bias", assessment: "Low risk - 87% retention with sensitivity analysis" }
+    ],
+    prospero_draft: `TITLE: Circadian rhythm disruption and risk of mild cognitive impairment: A systematic review and meta-analysis
+
+REVIEW QUESTION: Does circadian rhythm disruption increase the risk of developing mild cognitive impairment in older adults?
+
+SEARCHES: PubMed, Embase, PsycINFO, CINAHL from inception to [DATE]. Grey literature and conference proceedings.
+
+TYPES OF STUDY: Longitudinal observational studies
+
+CONDITION: Mild cognitive impairment (incident)
+
+PARTICIPANTS: Community-dwelling adults aged ≥60 years, cognitively normal at baseline
+
+INTERVENTION: Circadian rhythm disruption (irregular sleep-wake patterns, chronotype mismatch, shift work history)
+
+COMPARATOR: Regular circadian rhythms
+
+OUTCOME: Incident MCI by established diagnostic criteria
+
+DATA EXTRACTION: Circadian rhythm measures, disruption definitions, cognitive assessments, follow-up duration, effect estimates, confounding variables.
+
+RISK OF BIAS: Newcastle-Ottawa Scale for cohort studies
+
+STRATEGY FOR DATA SYNTHESIS: Random-effects meta-analysis if sufficient homogeneous studies. Subgroup analyses by type of circadian measure and disruption definition.`
+  },
+  {
+    id: 5,
+    title: "Sleep medications and MCI risk",
+    background: `Sleep medications, particularly benzodiazepines and Z-drugs, have been associated with cognitive impairment through various mechanisms including residual sedation, tolerance, and potential neurotoxic effects. The relationship with incident MCI requires systematic evaluation.`,
+    research_gap: `Conflicting evidence exists regarding sleep medication use and cognitive outcomes, with limited focus specifically on MCI development rather than broader cognitive decline or dementia.`,
+    pico: {
+      P: "Adults ≥50 years with sleep complaints, cognitively normal",
+      I: "Sleep medication use (benzodiazepines, Z-drugs, melatonin, antidepressants for sleep)",
+      C: "No sleep medication use or non-pharmacological sleep management",
+      O: "Incident MCI during follow-up"
+    },
+    eligibility: `Inclusion: Longitudinal studies ≥1 year; documented sleep medication use; standardized MCI criteria. Exclusion: Cross-sectional studies, psychiatric medication studies without sleep indication, dementia outcomes only.`,
+    pubmed_search: `("Hypnotics and Sedatives"[Mesh] OR "Benzodiazepines"[Mesh] OR zolpidem[tiab] OR "sleep medication"[tiab] OR "sleeping pills"[tiab]) AND ("Cognitive Dysfunction"[Mesh] OR "mild cognitive impairment"[tiab] OR MCI[tiab]) AND (longitudinal[tiab] OR cohort[tiab] OR prospective[tiab])`,
+    embase_search: `('hypnotic agent'/exp OR 'benzodiazepine derivative'/exp OR 'zolpidem'/exp OR 'sleep medication':ab,ti) AND ('mild cognitive impairment'/exp OR 'MCI':ab,ti) AND ('longitudinal study'/exp OR 'prospective study'/exp)`,
+    data_extraction: [
+      { field: "Study ID", example: "Thompson2022" },
+      { field: "Design", example: "Pharmacy database cohort" },
+      { field: "Population", example: "Adults 65+ with sleep disorders" },
+      { field: "Sample Size", example: "N=15,432" },
+      { field: "Medication Types", example: "Benzodiazepines, Z-drugs, trazodone" },
+      { field: "Exposure Definition", example: "≥30 days continuous use" },
+      { field: "Follow-up", example: "6.2 years median" },
+      { field: "MCI Incidence", example: "Exposed: 8.7%, Unexposed: 6.1%" }
+    ],
+    rob_domains: [
+      { domain: "Selection bias", assessment: "Low risk - Large population-based cohort" },
+      { domain: "Information bias", assessment: "Low risk - Pharmacy records for exposure" },
+      { domain: "Confounding", assessment: "Moderate risk - Indication bias, unmeasured confounders" },
+      { domain: "Detection bias", assessment: "Low risk - Standardized cognitive assessments" }
+    ],
+    prospero_draft: `TITLE: Sleep medication use and risk of mild cognitive impairment: A systematic review and meta-analysis
+
+REVIEW QUESTION: Does sleep medication use increase the risk of developing mild cognitive impairment in older adults?
+
+SEARCHES: PubMed, Embase, PsycINFO, Cochrane Library from inception to [DATE]. Regulatory agency reports and pharmaceutical databases.
+
+TYPES OF STUDY: Longitudinal cohort studies, nested case-control studies
+
+CONDITION: Mild cognitive impairment (incident)
+
+PARTICIPANTS: Adults aged ≥50 years with sleep complaints, cognitively normal at baseline
+
+INTERVENTION: Sleep medication use (benzodiazepines, Z-drugs, melatonin, sedating antidepressants)
+
+COMPARATOR: No sleep medication use or non-pharmacological sleep interventions
+
+OUTCOME: Incident MCI by standardized diagnostic criteria
+
+DATA EXTRACTION: Medication types, dosages, duration of use, indication, cognitive outcomes, confounding variables, effect estimates.
+
+RISK OF BIAS: Newcastle-Ottawa Scale, assessment of indication bias and confounding by indication
+
+STRATEGY FOR DATA SYNTHESIS: Random-effects meta-analysis stratified by medication class. Dose-response analysis where data available.`
+  },
+  {
+    id: 6,
+    title: "Sleep apnea severity and cognitive outcomes",
+    background: `Obstructive sleep apnea causes intermittent hypoxia, sleep fragmentation, and cardiovascular stress, all of which may contribute to cognitive decline. The relationship between OSA severity and MCI development requires systematic evaluation.`,
+    research_gap: `While OSA-dementia associations are established, fewer studies specifically examine OSA severity thresholds for MCI risk, and treatment effects on cognitive outcomes remain unclear.`,
+    pico: {
+      P: "Adults with suspected or diagnosed OSA, cognitively normal",
+      I: "Moderate-severe OSA (AHI ≥15) or severe OSA (AHI ≥30)",
+      C: "No OSA or mild OSA (AHI <15)",
+      O: "Incident MCI or cognitive decline to MCI threshold"
+    },
+    eligibility: `Inclusion: Studies with polysomnography-confirmed OSA; longitudinal follow-up ≥1 year; standardized MCI diagnosis. Exclusion: Cross-sectional studies, central sleep apnea only, treatment intervention studies.`,
+    pubmed_search: `("Sleep Apnea, Obstructive"[Mesh] OR "obstructive sleep apnea"[tiab] OR OSA[tiab] OR "apnea hypopnea index"[tiab] OR AHI[tiab]) AND ("Cognitive Dysfunction"[Mesh] OR "mild cognitive impairment"[tiab] OR MCI[tiab]) AND (longitudinal[tiab] OR prospective[tiab])`,
+    embase_search: `('obstructive sleep apnea'/exp OR 'OSA':ab,ti OR 'apnea hypopnea index':ab,ti OR 'AHI':ab,ti) AND ('mild cognitive impairment'/exp OR 'MCI':ab,ti) AND ('longitudinal study'/exp OR 'prospective study'/exp)`,
+    data_extraction: [
+      { field: "Study ID", example: "Martinez2023" },
+      { field: "Setting", example: "Sleep clinic cohort" },
+      { field: "Sample Size", example: "N=1,089" },
+      { field: "OSA Severity", example: "Mild (5-14), Moderate (15-29), Severe (≥30)" },
+      { field: "Cognitive Battery", example: "MoCA, Trail Making, Verbal Fluency" },
+      { field: "Follow-up", example: "3.8 years mean" },
+      { field: "MCI Rate by Severity", example: "None: 5.2%, Mild: 8.1%, Moderate: 12.4%, Severe: 18.7%" },
+      { field: "Adjusted HR (Severe vs None)", example: "2.34 (1.67-3.28)" }
+    ],
+    rob_domains: [
+      { domain: "Selection bias", assessment: "Moderate risk - Sleep clinic population may not be representative" },
+      { domain: "Information bias", assessment: "Low risk - Objective PSG measures, standardized cognitive testing" },
+      { domain: "Confounding", assessment: "Low risk - Adjusted for age, education, cardiovascular risk factors" },
+      { domain: "Attrition bias", assessment: "Low risk - 91% follow-up completion" }
+    ],
+    prospero_draft: `TITLE: Obstructive sleep apnea severity and risk of mild cognitive impairment: A systematic review and dose-response meta-analysis
+
+REVIEW QUESTION: What is the relationship between OSA severity and incident mild cognitive impairment?
+
+SEARCHES: PubMed, Embase, PsycINFO, Cochrane Library from inception to [DATE]. Sleep medicine conference abstracts.
+
+TYPES OF STUDY: Longitudinal cohort studies with polysomnography-confirmed OSA
+
+CONDITION: Mild cognitive impairment (incident)
+
+PARTICIPANTS: Adults with suspected or confirmed OSA, cognitively normal at baseline
+
+INTERVENTION: Moderate-severe OSA (AHI ≥15) or severe OSA (AHI ≥30)
+
+COMPARATOR: No OSA or mild OSA (AHI <15)
+
+OUTCOME: Incident MCI by established diagnostic criteria
+
+DATA EXTRACTION: OSA severity measures (AHI, ODI, arousal index), cognitive assessments, follow-up duration, effect estimates by severity category.
+
+RISK OF BIAS: Newcastle-Ottawa Scale with additional assessment of sleep study quality
+
+STRATEGY FOR DATA SYNTHESIS: Random-effects meta-analysis with dose-response modeling using AHI as continuous variable. Subgroup analyses by age, sex, treatment status.`
+  },
+  {
+    id: 7,
+    title: "Sleep quality interventions for MCI prevention",
+    background: `Sleep quality interventions, including cognitive behavioral therapy for insomnia (CBT-I), sleep hygiene education, and mindfulness-based approaches, may prevent or delay cognitive decline by improving sleep consolidation and reducing inflammation.`,
+    research_gap: `Limited systematic evidence on whether sleep quality interventions can prevent MCI development in at-risk populations, with most studies focusing on existing cognitive impairment rather than prevention.`,
+    pico: {
+      P: "Older adults with sleep complaints, cognitively normal or at-risk for MCI",
+      I: "Sleep quality interventions (CBT-I, sleep hygiene, mindfulness, exercise)",
+      C: "Usual care, waitlist control, or attention control",
+      O: "Prevention of MCI development or maintenance of cognitive function"
+    },
+    eligibility: `Inclusion: Randomized controlled trials ≥6 months; sleep quality interventions; cognitive outcomes including MCI. Exclusion: Pharmacological interventions only, existing dementia, cross-sectional studies.`,
+    pubmed_search: `("Cognitive Behavioral Therapy"[Mesh] OR "sleep hygiene"[tiab] OR "sleep intervention"[tiab] OR "CBT-I"[tiab]) AND ("Cognitive Dysfunction"[Mesh] OR "mild cognitive impairment"[tiab] OR MCI[tiab] OR "cognitive function"[tiab]) AND (randomized[tiab] OR RCT[tiab] OR trial[tiab])`,
+    embase_search: `('cognitive behavioral therapy'/exp OR 'sleep hygiene':ab,ti OR 'sleep intervention':ab,ti OR 'CBT-I':ab,ti) AND ('mild cognitive impairment'/exp OR 'cognitive function':ab,ti OR 'MCI':ab,ti) AND ('randomized controlled trial'/exp OR 'clinical trial'/exp)`,
+    data_extraction: [
+      { field: "Study ID", example: "Wilson2023" },
+      { field: "Design", example: "Parallel-group RCT" },
+      { field: "Population", example: "Adults 60+ with insomnia, normal cognition" },
+      { field: "Sample Size", example: "N=324 (162 intervention, 162 control)" },
+      { field: "Intervention", example: "8-week CBT-I program + sleep hygiene" },
+      { field: "Control", example: "Sleep education pamphlets" },
+      { field: "Follow-up", example: "24 months" },
+      { field: "Primary Outcome", example: "MCI incidence: 8.6% vs 14.2% (p=0.048)" }
+    ],
+    rob_domains: [
+      { domain: "Random sequence generation", assessment: "Low risk - Computer-generated randomization" },
+      { domain: "Allocation concealment", assessment: "Low risk - Sealed envelope system" },
+      { domain: "Blinding of participants", assessment: "High risk - Impossible to blind behavioral intervention" },
+      { domain: "Blinding of outcome assessment", assessment: "Low risk - Blinded cognitive assessors" },
+      { domain: "Incomplete outcome data", assessment: "Low risk - 89% completion, ITT analysis" },
+      { domain: "Selective reporting", assessment: "Low risk - All prespecified outcomes reported" }
+    ],
+    prospero_draft: `TITLE: Sleep quality interventions for prevention of mild cognitive impairment: A systematic review and meta-analysis of randomized controlled trials
+
+REVIEW QUESTION: Do sleep quality interventions prevent the development of mild cognitive impairment in older adults?
+
+SEARCHES: PubMed, Embase, PsycINFO, Cochrane CENTRAL from inception to [DATE]. Clinical trial registries and conference abstracts.
+
+TYPES OF STUDY: Randomized controlled trials with ≥6 months follow-up
+
+CONDITION: Mild cognitive impairment (prevention)
+
+PARTICIPANTS: Older adults with sleep complaints, cognitively normal or at-risk for cognitive decline
+
+INTERVENTION: Non-pharmacological sleep quality interventions (CBT-I, sleep hygiene, mindfulness, exercise)
+
+COMPARATOR: Usual care, waitlist control, attention control, or active control
+
+OUTCOME: Prevention of MCI development, maintenance of cognitive function, cognitive test scores
+
+DATA EXTRACTION: Intervention details, control conditions, participant characteristics, cognitive outcomes, follow-up duration, effect sizes.
+
+RISK OF BIAS: Cochrane Risk of Bias 2.0 tool
+
+STRATEGY FOR DATA SYNTHESIS: Random-effects meta-analysis of MCI incidence and cognitive outcomes. Subgroup analyses by intervention type, duration, and participant characteristics.`
+  },
+  {
+    id: 8,
+    title: "Sleep-wake cycle regularity and cognitive aging",
+    background: `Regular sleep-wake cycles support optimal circadian function and cognitive performance. Irregular sleep patterns may accelerate cognitive aging through disrupted circadian rhythms, affecting memory consolidation and neuroplasticity.`,
+    research_gap: `Limited systematic evidence on sleep-wake regularity as a predictor of MCI, with most studies focusing on sleep duration or quality rather than regularity patterns.`,
+    pico: {
+      P: "Community-dwelling older adults, cognitively intact",
+      I: "Irregular sleep-wake patterns (variable bedtimes, wake times, napping)",
+      C: "Regular sleep-wake patterns",
+      O: "Incident MCI or cognitive decline over time"
+    },
+    eligibility: `Inclusion: Longitudinal studies ≥2 years; objective or subjective sleep-wake regularity measures; standardized MCI diagnosis. Exclusion: Cross-sectional studies, shift workers, institutionalized populations.`,
+    pubmed_search: `("sleep wake cycle"[tiab] OR "sleep regularity"[tiab] OR "bedtime variability"[tiab] OR "circadian regularity"[tiab] OR "sleep timing"[tiab]) AND ("Cognitive Dysfunction"[Mesh] OR "mild cognitive impairment"[tiab] OR MCI[tiab]) AND (longitudinal[tiab] OR cohort[tiab])`,
+    embase_search: `('sleep wake cycle':ab,ti OR 'sleep regularity':ab,ti OR 'bedtime variability':ab,ti OR 'circadian regularity':ab,ti) AND ('mild cognitive impairment'/exp OR 'MCI':ab,ti) AND ('longitudinal study'/exp OR 'cohort analysis'/exp)`,
+    data_extraction: [
+      { field: "Study ID", example: "Park2023" },
+      { field: "Population", example: "Community-dwelling adults 65-85 years" },
+      { field: "Sample Size", example: "N=1,567" },
+      { field: "Regularity Measure", example: "7-day actigraphy, bedtime SD, wake time SD" },
+      { field: "Irregularity Definition", example: "Bedtime SD >60 min or wake time SD >45 min" },
+      { field: "Cognitive Assessment", example: "Annual comprehensive neuropsych battery" },
+      { field: "Follow-up", example: "5 years" },
+      { field: "Main Finding", example: "Irregular sleep-wake HR=1.43 (1.18-1.74)" }
+    ],
+    rob_domains: [
+      { domain: "Selection bias", assessment: "Low risk - Population-based recruitment" },
+      { domain: "Information bias", assessment: "Low risk - Objective actigraphy measures" },
+      { domain: "Confounding", assessment: "Low risk - Comprehensive covariate adjustment" },
+      { domain: "Attrition bias", assessment: "Moderate risk - 82% retention, differential by age" }
+    ],
+    prospero_draft: `TITLE: Sleep-wake cycle regularity and risk of mild cognitive impairment: A systematic review and meta-analysis
+
+REVIEW QUESTION: Does irregular sleep-wake cycle increase the risk of developing mild cognitive impairment in older adults?
+
+SEARCHES: PubMed, Embase, PsycINFO, CINAHL from inception to [DATE]. Reference lists and grey literature.
+
+TYPES OF STUDY: Longitudinal observational studies
+
+CONDITION: Mild cognitive impairment (incident)
+
+PARTICIPANTS: Community-dwelling older adults, cognitively normal at baseline
+
+INTERVENTION: Irregular sleep-wake patterns (variable sleep timing, fragmented sleep-wake cycles)
+
+COMPARATOR: Regular sleep-wake patterns
+
+OUTCOME: Incident MCI by standardized diagnostic criteria
+
+DATA EXTRACTION: Sleep-wake regularity measures, irregularity definitions, cognitive assessments, follow-up duration, effect estimates, confounders.
+
+RISK OF BIAS: Newcastle-Ottawa Scale for cohort studies
+
+STRATEGY FOR DATA SYNTHESIS: Random-effects meta-analysis if sufficient studies. Narrative synthesis of regularity measures and thresholds. Subgroup analyses by measurement method.`
+  },
+  {
+    id: 9,
+    title: "Napping patterns and cognitive decline risk",
+    background: `Daytime napping patterns may reflect underlying sleep debt, circadian dysfunction, or early cognitive changes. Both excessive napping and complete absence of napping have been associated with cognitive decline, suggesting a complex relationship.`,
+    research_gap: `Limited systematic evidence on napping patterns as predictors of MCI, with inconsistent findings regarding optimal napping duration and timing for cognitive health.`,
+    pico: {
+      P: "Older adults without dementia, living in community",
+      I: "Excessive daytime napping (>60 min/day) or no napping",
+      C: "Moderate napping (15-60 min/day)",
+      O: "Incident MCI or cognitive decline"
+    },
+    eligibility: `Inclusion: Longitudinal studies ≥1 year; documented napping patterns; standardized MCI criteria. Exclusion: Cross-sectional studies, institutionalized populations, sleep disorder treatment studies.`,
+    pubmed_search: `(nap[tiab] OR napping[tiab] OR "daytime sleep"[tiab] OR siesta[tiab]) AND ("Cognitive Dysfunction"[Mesh] OR "mild cognitive impairment"[tiab] OR MCI[tiab] OR "cognitive decline"[tiab]) AND (longitudinal[tiab] OR prospective[tiab] OR cohort[tiab])`,
+    embase_search: `('nap':ab,ti OR 'napping':ab,ti OR 'daytime sleep':ab,ti OR 'siesta':ab,ti) AND ('mild cognitive impairment'/exp OR 'cognitive decline':ab,ti OR 'MCI':ab,ti) AND ('longitudinal study'/exp OR 'prospective study'/exp)`,
+    data_extraction: [
+      { field: "Study ID", example: "Liu2022" },
+      { field: "Design", example: "Population-based cohort" },
+      { field: "Sample Size", example: "N=2,214" },
+      { field: "Age Range", example: "70-90 years" },
+      { field: "Napping Assessment", example: "Self-report frequency and duration" },
+      { field: "Napping Categories", example: "None, <30min, 30-60min, >60min" },
+      { field: "Follow-up", example: "6 years" },
+      { field: "MCI Incidence by Group", example: "None: 16.2%, <30min: 11.8%, 30-60min: 9.4%, >60min: 19.1%" }
+    ],
+    rob_domains: [
+      { domain: "Selection bias", assessment: "Low risk - Representative community sample" },
+      { domain: "Information bias", assessment: "Moderate risk - Self-reported napping patterns" },
+      { domain: "Confounding", assessment: "Low risk - Adjusted for sleep quality, health status" },
+      { domain: "Attrition bias", assessment: "Low risk - 88% retention with sensitivity analysis" }
+    ],
+    prospero_draft: `TITLE: Daytime napping patterns and risk of mild cognitive impairment: A systematic review and meta-analysis
+
+REVIEW QUESTION: What is the relationship between daytime napping patterns and incident mild cognitive impairment in older adults?
+
+SEARCHES: PubMed, Embase, PsycINFO from inception to [DATE]. Cross-references and grey literature sources.
+
+TYPES OF STUDY: Longitudinal cohort studies
+
+CONDITION: Mild cognitive impairment (incident)
+
+PARTICIPANTS: Community-dwelling older adults, cognitively normal at baseline
+
+INTERVENTION: Excessive daytime napping (>60 minutes/day) or absence of napping
+
+COMPARATOR: Moderate napping (15-60 minutes/day)
+
+OUTCOME: Incident MCI by established diagnostic criteria
+
+DATA EXTRACTION: Napping frequency, duration, timing, cognitive outcomes, follow-up period, effect estimates, confounding variables.
+
+RISK OF BIAS: Newcastle-Ottawa Scale for cohort studies
+
+STRATEGY FOR DATA SYNTHESIS: Random-effects meta-analysis with dose-response modeling. Subgroup analyses by napping duration categories and measurement methods.`
+  },
+  {
+    id: 10,
+    title: "Sleep and inflammation pathways in MCI development",
+    background: `Sleep disturbances promote inflammatory processes through multiple pathways, including increased cytokine production, microglial activation, and disrupted blood-brain barrier function. These inflammatory changes may contribute to neurodegeneration and MCI development.`,
+    research_gap: `Limited systematic evidence on inflammatory biomarkers as mediators of the sleep-MCI relationship, with most studies examining sleep and inflammation or inflammation and cognition separately.`,
+    pico: {
+      P: "Adults ≥60 years, cognitively normal with inflammatory biomarker data",
+      I: "Sleep disturbances with elevated inflammatory markers (CRP, IL-6, TNF-α)",
+      C: "Good sleep quality with normal inflammatory markers",
+      O: "Incident MCI, with inflammatory markers as potential mediators"
+    },
+    eligibility: `Inclusion: Longitudinal studies with sleep measures, inflammatory biomarkers, and cognitive outcomes; ≥2 years follow-up; standardized MCI criteria. Exclusion: Cross-sectional studies, acute inflammatory conditions, immunosuppressive medication use.`,
+    pubmed_search: `("Sleep Disorders"[Mesh] OR insomnia[tiab] OR "sleep quality"[tiab]) AND ("Inflammation"[Mesh] OR "C-Reactive Protein"[Mesh] OR "Interleukin-6"[Mesh] OR cytokine[tiab]) AND ("Cognitive Dysfunction"[Mesh] OR "mild cognitive impairment"[tiab] OR MCI[tiab]) AND (longitudinal[tiab] OR prospective[tiab])`,
+    embase_search: `('sleep disorder'/exp OR 'insomnia':ab,ti OR 'sleep quality':ab,ti) AND ('inflammation'/exp OR 'C reactive protein'/exp OR 'interleukin 6'/exp OR 'cytokine':ab,ti) AND ('mild cognitive impairment'/exp OR 'MCI':ab,ti) AND ('longitudinal study'/exp)`,
+    data_extraction: [
+      { field: "Study ID", example: "Anderson2023" },
+      { field: "Population", example: "Community cohort, 65+ years" },
+      { field: "Sample Size", example: "N=1,456" },
+      { field: "Sleep Measures", example: "PSQI, actigraphy sleep efficiency" },
+      { field: "Inflammatory Markers", example: "CRP, IL-6, TNF-α, IL-1β" },
+      { field: "Cognitive Assessment", example: "Comprehensive neuropsych battery" },
+      { field: "Follow-up", example: "7 years" },
+      { field: "Mediation Analysis", example: "CRP mediated 23% of sleep-MCI association" }
+    ],
+    rob_domains: [
+      { domain: "Selection bias", assessment: "Low risk - Population-based recruitment" },
+      { domain: "Information bias", assessment: "Low risk - Standardized biomarker assays" },
+      { domain: "Confounding", assessment: "Low risk - Comprehensive health and lifestyle adjustment" },
+      { domain: "Attrition bias", assessment: "Moderate risk - 79% retention, some differential loss" }
+    ],
+    prospero_draft: `TITLE: Sleep disturbances, inflammatory biomarkers, and risk of mild cognitive impairment: A systematic review and meta-analysis of mediation pathways
+
+REVIEW QUESTION: Do inflammatory biomarkers mediate the relationship between sleep disturbances and incident mild cognitive impairment?
+
+SEARCHES: PubMed, Embase, PsycINFO, Cochrane Library from inception to [DATE]. Conference abstracts from sleep, inflammation, and aging research societies.
+
+TYPES OF STUDY: Longitudinal cohort studies with sleep, inflammatory, and cognitive measures
+
+CONDITION: Mild cognitive impairment (incident)
+
+PARTICIPANTS: Adults aged ≥60 years, cognitively normal at baseline, with inflammatory biomarker data
+
+INTERVENTION: Sleep disturbances combined with elevated inflammatory markers
+
+COMPARATOR: Good sleep quality with normal inflammatory markers
+
+OUTCOME: Incident MCI, with assessment of inflammatory markers as mediators
+
+DATA EXTRACTION: Sleep measures, inflammatory biomarkers (CRP, IL-6, TNF-α), cognitive outcomes, mediation analyses, confounding variables.
+
+RISK OF BIAS: Newcastle-Ottawa Scale with additional assessment of biomarker measurement quality
+
+STRATEGY FOR DATA SYNTHESIS: Meta-analysis of direct and indirect effects where mediation analyses available. Narrative synthesis of inflammatory pathways and mechanisms.`
+  }
+];
+
+let currentReview = 0;
+
+function renderTabs() {
+  const tabsContainer = document.getElementById('tabs');
+  tabsContainer.innerHTML = reviews.map((review, index) => `
+    <div class="tab ${index === currentReview ? 'active' : ''}" onclick="showReview(${index})">
+      <div class="tab-number">${review.id}</div>
+      <div class="tab-title">${review.title}</div>
+    </div>
+  `).join('');
+}
+
+function showReview(index) {
+  currentReview = index;
+  renderTabs();
+  renderContent();
+}
+
+function renderContent() {
+  const review = reviews[currentReview];
+  const contentDiv = document.getElementById('content');
+  
+  contentDiv.innerHTML = `
+    <div class="section">
+      <h2>
+        <span class="section-icon" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white;">📋</span>
+        Background & Research Gap
+      </h2>
+      <p><strong>Background:</strong> ${review.background}</p>
+      <p><strong>Research Gap:</strong> ${review.research_gap}</p>
+    </div>
+
+    <div class="section">
+      <h2>
+        <span class="section-icon" style="background: linear-gradient(135deg, var(--success), var(--accent)); color: white;">🎯</span>
+        PICO Framework
+      </h2>
+      <div class="pico-grid">
+        <div class="pico-item population">
+          <div class="pico-label">Population</div>
+          <div>${review.pico.P}</div>
+        </div>
+        <div class="pico-item intervention">
+          <div class="pico-label">Intervention</div>
+          <div>${review.pico.I}</div>
+        </div>
+        <div class="pico-item comparison">
+          <div class="pico-label">Comparison</div>
+          <div>${review.pico.C}</div>
+        </div>
+        <div class="pico-item outcome">
+          <div class="pico-label">Outcome</div>
+          <div>${review.pico.O}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>
+        <span class="section-icon" style="background: linear-gradient(135deg, var(--warning), var(--orange)); color: white;">✅</span>
+        Eligibility Criteria
+      </h2>
+      <p>${review.eligibility}</p>
+    </div>
+
+    <div class="section">
+      <h2>
+        <span class="section-icon" style="background: linear-gradient(135deg, var(--secondary), var(--primary)); color: white;">🔍</span>
+        Search Strategies
+      </h2>
+      <div style="margin-bottom: 1.5rem;">
+        <div class="code-header">
+          <span class="code-title">PubMed Search Strategy</span>
+          <button class="btn small" onclick="copyToClipboard('pubmed-${currentReview}', this)">📋 Copy Search</button>
+        </div>
+        <code id="pubmed-${currentReview}">${review.pubmed_search}</code>
+      </div>
+      <div>
+        <div class="code-header">
+          <span class="code-title">Embase Search Strategy</span>
+          <button class="btn small" onclick="copyToClipboard('embase-${currentReview}', this)">📋 Copy Search</button>
+        </div>
+        <code id="embase-${currentReview}">${review.embase_search}</code>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>
+        <span class="section-icon" style="background: linear-gradient(135deg, var(--purple), var(--pink)); color: white;">📊</span>
+        Data Extraction Template
+      </h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Example Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${review.data_extraction.map(item => `
+            <tr>
+              <td><strong>${item.field}</strong></td>
+              <td>${item.example}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>
+        <span class="section-icon" style="background: linear-gradient(135deg, var(--danger), var(--warning)); color: white;">⚖️</span>
+        Risk of Bias Assessment
+      </h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Domain</th>
+            <th>Assessment Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${review.rob_domains.map(item => `
+            <tr>
+              <td><strong>${item.domain}</strong></td>
+              <td>${item.assessment}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>
+        <span class="section-icon" style="background: linear-gradient(135deg, var(--accent), var(--success)); color: white;">📝</span>
+        PROSPERO Protocol Draft
+      </h2>
+      <div style="margin-bottom: 1rem;">
+        <button class="btn" onclick="copyToClipboard('prospero-${currentReview}', this)">📋 Copy PROSPERO Draft</button>
+      </div>
+      <textarea id="prospero-${currentReview}" readonly>${review.prospero_draft}</textarea>
+    </div>
+  `;
+}
+
+function copyToClipboard(elementId, button) {
+  const element = document.getElementById(elementId);
+  const text = element.textContent || element.value;
+  
+  navigator.clipboard.writeText(text).then(() => {
+    const originalText = button.innerHTML;
+    button.innerHTML = '✅ Copied!';
+    button.classList.add('copy-success');
+    
+    setTimeout(() => {
+      button.innerHTML = originalText;
+      button.classList.remove('copy-success');
+    }, 2000);
+  }).catch(err => {
+    console.error('Failed to copy text: ', err);
+    // Fallback for older browsers
+    element.select();
+    document.execCommand('copy');
+    button.innerHTML = '✅ Copied!';
+    setTimeout(() => {
+      button.innerHTML = '📋 Copy';
+    }, 2000);
+  });
+}
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', () => {
+  renderTabs();
+  renderContent();
+});
+</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97048c25b593e18b',t:'MTc1NTM4NTIyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
